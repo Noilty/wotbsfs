@@ -370,26 +370,29 @@ html, body {
     background-color: #000;
 }
 
-.header {
-    height: 50px;
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
     background: darkcyan;
 }
 
-.footer {
-    height: 50px;
+footer {
     background: darkcyan;
 }
 
 .content-wrapper {
     margin: 0 auto;
-    width: 920px;
+    width: 1170px;
 }
 
 .content {
     width: 100%;
     float: left;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 250px;
+    padding-right: 250px;
 }
 
 .sidebar {
@@ -400,11 +403,89 @@ html, body {
 }
 
 .sidebar-left {
-    width: 200px;
+    width: 250px;
 }
 
 .sidebar-right {
-    width: 200px;
-    margin-left: -200px;
+    width: 250px;
+    margin-left: -250px;
+}
+
+.header_menu {
+    width: 70%;
+    float: left;
+}
+
+.header_user {
+    margin-left: 70%;
+}
+
+/* UP MENU */
+ul {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1;
+}
+ul li {
+    display: inline-block;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+ul li ul {
+    padding: 2px;
+    position: absolute;
+    top: 50px;
+    right: -2px;
+    width: 204px;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    text-align: end;
+    /*text-transform: uppercase;*/
+}
+ul li ul li { 
+    background: #555; 
+    display: block; 
+    color: #fff;
+}
+ul li:hover {
+    background: #555;
+    color: #fff;
+}
+ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+ul li ul li:hover { 
+    background: #666; 
+}
+
+/*
+    grid - блочный элемент
+    inline-grid - строчный элемент
+    grid-template-columns - определяет колонки сетки с помощью списка значений разделённого пробелами
+    grid-template-rows - определяет строки сетки с помощью списка значений разделённого пробелами
+    grid-auto-rows - определяет размер любых автоматически созданных треков (иначе говоря, неявных треков)
+    grid-auto-columns - определяет размер любых автоматически созданных треков (иначе говоря, неявных треков)
+*/
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    background-color: #666;
+}
+.grid__item {
+    display: flex;
+}
+.grid__item:nth-child(1) {
+    justify-content: left;
+}
+.grid__item:nth-child(2) {
+    justify-content: right;
 }
 
