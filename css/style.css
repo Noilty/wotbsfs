@@ -353,13 +353,13 @@ template {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+/*
 .clearfix:after {
     content: "";
     display:block;
     clear: both;
 }
-
+*/
 html, body {
     margin: 0;
     padding: 0;
@@ -367,7 +367,7 @@ html, body {
     font-size: 16px;
     line-height: 1.4;
     color: #fff;
-    background-color: #000;
+    background-color: #666;
 }
 
 a {
@@ -380,19 +380,42 @@ header {
 }
 
 footer {
-    background: darkcyan;
+    text-align: center;
+    padding: 20px;
+    background: #000;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+    tr {
+        border: 1px solid;
+    }
+    td {
+        text-align: center;
+        border: 1px solid;
+    }
+    th {
+        border: 1px solid;
+        /*font-weight: unset;*/
+    }
 
 .content-wrapper {
     margin: 0 auto;
     width: 1170px;
+    border-left: solid 5px #F2C811;
+    border-right: solid 5px #F2C811;
 }
 
+/*
 .content {
     width: 100%;
     float: left;
     padding-left: 250px;
     padding-right: 250px;
+    color: #000;
+    background-color: #fff;
 }
 
 .sidebar {
@@ -400,6 +423,8 @@ footer {
     float: left;
     position: relative;
     margin-left: -100%;
+    color: #000;
+    text-transform: uppercase;
 }
 
 .sidebar-left {
@@ -410,15 +435,7 @@ footer {
     width: 250px;
     margin-left: -250px;
 }
-
-.header_menu {
-    width: 70%;
-    float: left;
-}
-
-.header_user {
-    margin-left: 70%;
-}
+*/
 
 /* UP MENU */
 ul {
@@ -449,12 +466,12 @@ ul li ul {
     /*text-transform: uppercase;*/
 }
 ul li ul li { 
-    background: #555; 
+    background: #333; 
     display: block; 
     color: #fff;
 }
 ul li:hover {
-    background: #555;
+    background: #212121;
     color: #fff;
 }
 ul li:hover ul {
@@ -463,9 +480,60 @@ ul li:hover ul {
     visibility: visible;
 }
 ul li ul li:hover { 
-    background: #666; 
+    background: #4A4A4A; 
+}
+/* / UP MENU */
+
+input[type='submit'] {
+    width: 100%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px 0px 0px 0px;
+    color: #fff;
+    background-color: black;
+    border: 1px solid #000;
+    /*transition: .3s;*/
 }
 
+input[type='submit']:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+fieldset {
+    padding: 5px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+legend {
+    padding: 0 5px 0 5px;
+    margin: 0px;
+}
+
+/* My Start */
+.info-battle {
+    padding: 10px;
+}
+
+.battle-win {
+    border: 1px solid black;
+    color: #fff;
+    background-color: green;
+}
+
+.battle-fail {
+    border: 1px solid black;
+    color: #fff;
+    background-color: brown;
+}
+
+.clear-session {
+    border: 1px solid black;
+    padding: 5px;
+    display: none;
+}
 /*
     grid - блочный элемент
     inline-grid - строчный элемент
@@ -474,18 +542,54 @@ ul li ul li:hover {
     grid-auto-rows - определяет размер любых автоматически созданных треков (иначе говоря, неявных треков)
     grid-auto-columns - определяет размер любых автоматически созданных треков (иначе говоря, неявных треков)
 */
-.grid {
+
+.grid-content {
+    display: grid;
+    grid-template-columns: 223px 1fr 251px;
+    background-color: #fff;
+    color: #000;
+}
+    .grid-content__item {
+        display: grid;
+    }
+    
+.grid-header {
+    display: grid;
+    background-color: #000;
+}
+    .grid-header__item {
+        display: grid;
+        align-items: center;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 24px;
+    }
+    
+.grid-nav {
     display: grid;
     grid-template-columns: 1fr 300px;
-    background-color: #666;
+    background-color: #333;
 }
-.grid__item {
-    display: flex;
-}
-.grid__item:nth-child(1) {
-    justify-content: left;
-}
-.grid__item:nth-child(2) {
-    justify-content: right;
-}
+    .grid-nav__item {
+        display: flex;
+    }
+    .grid-nav__item:nth-child(1) {
+        justify-content: left;
+    }
+    .grid-nav__item:nth-child(2) {
+        justify-content: right;
+    }
 
+.grid-statistics {
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+}
+    .grid-statistics__item {
+        display: flex;
+    }
+    .grid-statistics__item:nth-child(odd) {
+        justify-content: left;
+    }
+    .grid-statistics__item:nth-child(even) {
+        justify-content: right;
+    }
