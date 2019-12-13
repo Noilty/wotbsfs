@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
     <title>WOT: BSFS</title>    
     <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 <!--
 #000000
@@ -19,64 +19,11 @@
     <div class="content-wrapper">
         
         <!-- Шапка -->
-        <header class="grid-header">
-            <div class="grid-header__item">
-                <img src="../../assets/img/wot.png" />
-            </div>
-            <div class="grid-header__item">World Of Tanks: Battle Statistics For Stream</div>
-            <div class="grid-header__item">
-                <img src="../../assets/img/wotb.png" />
-            </div>
-        </header>
+        <?php require_once '../../assets/connect/header/index.php'; ?>
         <!-- / Шапка -->
         
         <!-- Меню навигации -->
-        <nav class="grid-nav">
-            <!-- Левая часть меню -->
-            <div class="grid-nav__item">
-                <ul>
-                    <a href="#">
-                        <li>Главная</li>
-                    </a>
-                    <a href="#" title="Browser Source (OBS)" target="_blank">
-                        <li>Источник</li>
-                    </a>
-                    <li>
-                        Центр поддержки
-                        <ul>
-                            <a href="#">
-                                <li>Мои заявки</li>
-                            </a>
-                            <a href="#">
-                                <li>Мои баны</li>
-                            </a>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- / Левая часть меню -->
-            
-            <!-- Правая часть меню -->
-            <div class="grid-nav__item">
-                <ul>
-                    <li>
-                        С возвращением <strong>Noilty</strong>!
-                        <ul>
-                            <a href="#">
-                                <li>Активировать код</li>
-                            </a>
-                            <a href="#">
-                                <li>Настройки</li>
-                            </a>
-                            <a href="#">
-                                <li>Выход</li>
-                            </a>
-                        </ul>
-                    </li>                        
-                </ul>
-            </div>
-            <!-- / Правая часть меню -->            
-        </nav>
+        <?php require_once '../../assets/connect/nav/index.php'; ?>
         <!-- / Меню навигации -->
         
         <!-- Здесь начинается контент -->
@@ -197,10 +144,7 @@
         <!-- / Здесь начинается контент -->
         
         <!-- Подвал -->
-        <footer>
-            <div>World Of Tanks: Battle Statistics For Stream</div>
-            <div>&#169; 2019 by <a href="https://vk.com/noiltychannel" target="_blank">Noilty Channel</a></div>
-        </footer>
+        <?php require_once '../../assets/connect/footer/index.php'; ?>
         <!-- / Подвал -->
 
     </div>
