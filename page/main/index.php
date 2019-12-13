@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
     <title>WOT: BSFS</title>    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
 </head>
 <!--
 #000000
@@ -21,11 +21,11 @@
         <!-- Шапка -->
         <header class="grid-header">
             <div class="grid-header__item">
-                <img src="/wotbsfs/img/wot.png" />
+                <img src="../../assets/img/wot.png" />
             </div>
             <div class="grid-header__item">World Of Tanks: Battle Statistics For Stream</div>
             <div class="grid-header__item">
-                <img src="/wotbsfs/img/wotb.png" />
+                <img src="../../assets/img/wotb.png" />
             </div>
         </header>
         <!-- / Шапка -->
