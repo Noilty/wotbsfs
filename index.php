@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
     <title>WOT: BSFS</title>    
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <!--
 #000000
@@ -14,12 +15,18 @@
 #F2C811
 -->
 <body>
-
+    
     <div class="content-wrapper">
         
         <!-- Шапка -->
         <header class="grid-header">
+            <div class="grid-header__item">
+                <img src="/wotbsfs/img/wot.png" />
+            </div>
             <div class="grid-header__item">World Of Tanks: Battle Statistics For Stream</div>
+            <div class="grid-header__item">
+                <img src="/wotbsfs/img/wotb.png" />
+            </div>
         </header>
         <!-- / Шапка -->
         
@@ -78,7 +85,7 @@
             <div class="grid-content__item">
                 <div class="info-battle">
                     <fieldset>
-                        <legend align="center" style="text-transform: uppercase;">Введите урон</legend>
+                        <legend class="legend-head" align="center">Введите урон</legend>
                         <fieldset>
                             <legend>Игрок #1</legend>
                             <input type="text" />
@@ -101,22 +108,25 @@
                     <div style="text-align: center;">
                         <label><input type="checkbox" id="checkbox" /> Очистить сессию?</label>
                     </div>
-                    <div class="clear-session" id="text">{BLOCK}</div>
+                    <div  id="clear-session" class="clear-session">
+                        {BLOCK}
+                        <input type="submit" value="Очистить"/>
+                    </div>
                 </div>                    
             </div>
             <!-- / INPUT [left] -->
 
             <!-- DB [Center] -->
             <div class="grid-content__item">
-                <div class="info-battle">
+                <div class="info-db">
                     <fieldset>
-                        <legend align="center" style="text-transform: uppercase;">База данных</legend>
+                        <legend class="legend-head" align="center">База данных</legend>
                         <table border="0">
                             <tr>
-                                <th rowspan="2">Бой</th>
+                                <th rowspan="2" style="width: 50px;">Бой</th>
                                 <th colspan="3">Урон за бой</th>
-                                <th rowspan="2">Статус</th>
-                                <th rowspan="2">Действие</th>
+                                <th rowspan="2" style="width: 115px;">Статус</th>
+                                <th rowspan="2" style="width: 90px;">Действие</th>
                             </tr>
                             <tr>
                                 <th>Игрок #1</th>
@@ -128,8 +138,8 @@
                                 <td>2</td>
                                 <td>3</td>
                                 <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
+                                <td>ПОРАЖЕНИЕ</td>
+                                <td>Изменить</td>
                             </tr>
                             <tr>
                                 <td colspan="5">INFO</td>
@@ -139,8 +149,8 @@
                                 <td>2</td>
                                 <td>3</td>
                                 <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
+                                <td>ПОРАЖЕНИЕ</td>
+                                <td>Изменить</td>
                             </tr>
                             <tr>
                                 <td colspan="5">INFO</td>
@@ -156,7 +166,7 @@
                         
                 <div class="info-battle">
                     <fieldset>
-                        <legend align="center" style="text-transform: uppercase;">Статистика</legend>
+                        <legend class="legend-head" align="center">Статистика</legend>
                         <div class="grid-statistics">
                             <div class="grid-statistics__item">Боев</div>
                             <div class="grid-statistics__item">99 999</div>
@@ -164,18 +174,18 @@
                             <div class="grid-statistics__item">99 999</div>
                             <div class="grid-statistics__item">Поражений</div>
                             <div class="grid-statistics__item">99 999</div>
-                            <div class="grid-statistics__item">С/У Гамер №1</div>
+                            <div class="grid-statistics__item"><strong>СУ</strong>_Гамер №1</div>
                             <div class="grid-statistics__item">99 999</div>
-                            <div class="grid-statistics__item">С/У Гамер №2</div>
+                            <div class="grid-statistics__item"><strong>СУ</strong>_Гамер №2</div>
                             <div class="grid-statistics__item">99 999</div>
-                            <div class="grid-statistics__item">С/У Гамер №3</div>
+                            <div class="grid-statistics__item"><strong>СУ</strong>_Гамер №3</div>
                             <div class="grid-statistics__item">99 999</div>
                             <div class="grid-statistics__item">% Побед</div>
                             <div class="grid-statistics__item">99 999</div>
                         </div>                        
                     </fieldset>
                     <fieldset style="text-align: center;">
-                        <legend align="center" style="text-transform: uppercase;">Внимание</legend>
+                        <legend class="legend-head" align="center">Внимание</legend>
                         <div>Доступно обновление!</div>
                         <div>v.2019-10-21(2)</div>                        
                     </fieldset>                    
@@ -188,7 +198,8 @@
         
         <!-- Подвал -->
         <footer>
-            {FOOTER}
+            <div>World Of Tanks: Battle Statistics For Stream</div>
+            <div>&#169; 2019 by <a href="https://vk.com/noiltychannel" target="_blank">Noilty Channel</a></div>
         </footer>
         <!-- / Подвал -->
 
@@ -204,9 +215,9 @@
     <script>
         $('#checkbox').click(function(){
             if ($(this).is(':checked')){
-                $('#text').show(100);
+                $('#clear-session').show(100);
             } else {
-                $('#text').hide(100);
+                $('#clear-session').hide(100);
             }
         });    
     </script>   

@@ -162,10 +162,11 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  /*font-family: inherit; 
+  font-size: 100%; 
+  line-height: 1.15; */
+  font-size: 16px;
+  margin: 0; 
 }
 
 /**
@@ -385,6 +386,18 @@ footer {
     background: #000;
 }
 
+    footer a {
+        font-family: helvetica;
+    }
+
+    footer a:hover {
+        color: #F2C811;
+    }
+
+    footer a:active {
+        color: #F2C811;
+    }
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -484,8 +497,13 @@ ul li ul li:hover {
 }
 /* / UP MENU */
 
-input[type='submit'] {
+input[type='text'],
+input[type='submit']{
     width: 100%;
+}
+
+input[type='submit']{
+    
     cursor: pointer;
     padding: 10px;
     margin: 5px 0px 0px 0px;
@@ -507,16 +525,31 @@ fieldset {
     border: 1px solid black;
 }
 
+fieldset {
+    margin: 0px 0px 10px 0px;
+}
+
 legend {
     padding: 0 5px 0 5px;
     margin: 0px;
 }
 
 /* My Start */
+.info-db {
+    padding: 10px 0px 0px 0px;
+}
 .info-battle {
     padding: 10px;
 }
 
+/* Element */
+.legend-head {
+    border: 1px solid black;
+    text-transform: uppercase;
+}
+/* / Element */
+
+/* BG DB */
 .battle-win {
     border: 1px solid black;
     color: #fff;
@@ -528,12 +561,16 @@ legend {
     color: #fff;
     background-color: brown;
 }
+/* / BG DB */
 
+/* Button */
 .clear-session {
     border: 1px solid black;
     padding: 5px;
     display: none;
 }
+/* / Button */
+
 /*
     grid - блочный элемент
     inline-grid - строчный элемент
@@ -545,7 +582,7 @@ legend {
 
 .grid-content {
     display: grid;
-    grid-template-columns: 223px 1fr 251px;
+    grid-template-columns: 220px 1fr 220px;
     background-color: #fff;
     color: #000;
 }
@@ -555,14 +592,30 @@ legend {
     
 .grid-header {
     display: grid;
+    grid-template-columns: 75px 1fr 75px;
+    align-items: center;
+    height: 70px;
+    
+    font-size: 24px;    
     background-color: #000;
 }
-    .grid-header__item {
+    .grid-header__item:nth-child(1) {
         display: grid;
-        align-items: center;
-        height: 50px;
+        justify-content: left;
+        filter: invert(100%);
+        margin: 0px 0px 0px 25px;
+    }
+    .grid-header__item:nth-child(2) {
+        display: grid;
         margin: 0 auto;
-        font-size: 24px;
+        
+
+    }
+    .grid-header__item:nth-child(3) {
+        display: grid;
+        justify-content: right;
+        filter: invert(100%);
+        margin: 0px 25px 0px 0px;
     }
     
 .grid-nav {
@@ -593,3 +646,5 @@ legend {
     .grid-statistics__item:nth-child(even) {
         justify-content: right;
     }
+
+
