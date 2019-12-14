@@ -429,6 +429,7 @@ table {
     width: 1170px;
     border-left: solid 5px #F2C811;
     border-right: solid 5px #F2C811;
+    background-color: #fff;
 }
 
 /*
@@ -511,6 +512,7 @@ input[type='text'],
 input[type='password'],
 input[type='email'],
 input[type='submit'],
+input[type='date'],
 select {
     width: 100%;
     text-align: center;
