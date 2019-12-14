@@ -506,6 +506,12 @@ ul li:hover ul {
 ul li ul li:hover { 
     background: #4A4A4A; 
 }
+.admin {
+    background-color: indianred;
+}
+.admin:hover {
+    background-color: coral;
+}
 /* / UP MENU */
 
 input[type='text'],
@@ -635,7 +641,7 @@ legend {
     
 .grid-nav {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 1fr;
     background-color: #333;
 }
     .grid-nav__item {

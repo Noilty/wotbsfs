@@ -36,11 +36,16 @@
                         <a href="/page/settings/">
                             <li>Настройки</li>
                         </a>
+                        <?php if ( !false ): ?>
+                        <a href="/page/admin/">
+                            <li class="admin">Администратор</li>
+                        </a>
+                        <?php endif; ?>
                         <a href="/page/exit/">
                             <li>Выход</li>
                         </a>
                     </ul>
-                </li>                        
+                </li>
             </ul>
         </div>
         <!-- / Правая часть меню -->            
