@@ -18,27 +18,7 @@
         <!-- / Шапка -->
         
         <!-- Меню навигации -->
-        <nav class="grid-nav">
-            <!-- Левая часть меню -->
-            <div class="grid-nav__item">
-                <ul>
-                    <a href="#">
-                        <li>Главная</li>
-                    </a>
-                </ul>
-            </div>
-            <!-- / Левая часть меню -->
-
-            <!-- Правая часть меню -->
-            <div class="grid-nav__item">
-                <ul>
-                    <a id="login-to-continue">
-                        <li>Войдите чтобы продолжить!</li>
-                    </a>
-                </ul>
-            </div>
-            <!-- / Правая часть меню -->            
-        </nav>
+        <?php require_once '../../assets/connect/nav/index.php'; ?>
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
