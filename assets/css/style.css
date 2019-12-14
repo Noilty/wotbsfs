@@ -510,13 +510,13 @@ ul li ul li:hover {
 input[type='text'],
 input[type='password'],
 input[type='email'],
-input[type='submit']{
+input[type='submit'],
+select {
     width: 100%;
     text-align: center;
 }
 
 input[type='submit']{
-    
     cursor: pointer;
     padding: 10px;
     margin: 5px 0px 0px 0px;

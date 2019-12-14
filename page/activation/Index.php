@@ -29,7 +29,7 @@
                         <legend class="legend-head" align="center">Активация кода</legend>
                         <fieldset>
                             <legend>Код</legend>
-                            <input type="text" id="activation-code" name="inputActivationCode" placeholder="XXXX-XXXX-XXXX" />
+                            <input type="text" id="activation-code" name="inputActivationCode" placeholder="XXXX-XXXX-XXXX-XXXX" />
                         </fieldset>
                         <hr />
                         <fieldset>
@@ -60,7 +60,8 @@
     
     <script>
         $( document ).ready(function() {
-            $("#activation-code").mask("9999-9999-9999");
+            $("#activation-code").mask("aaaa-aaaa-aaaa-aaaa");
+            $('#activation-code').css('text-transform','uppercase');
         });// document ready
     </script>    
 

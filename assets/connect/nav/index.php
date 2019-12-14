@@ -3,19 +3,19 @@
         <!-- Левая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="/page/main">
+                <a href="/page/main/">
                     <li>Главная</li>
                 </a>
-                <a href="#" title="Browser Source (OBS)" target="_blank">
+                <a href="/page/source/" title="Browser Source (OBS)" target="_blank">
                     <li>Источник</li>
                 </a>
                 <li>
                     Центр поддержки
                     <ul>
-                        <a href="#">
+                        <a href="/page/ticket/">
                             <li>Мои заявки</li>
                         </a>
-                        <a href="#">
+                        <a href="/page/ban/">
                             <li>Мои баны</li>
                         </a>
                     </ul>
@@ -30,13 +30,13 @@
                 <li>
                     С возвращением <strong>Noilty</strong>!
                     <ul>
-                        <a href="/page/activation">
+                        <a href="/page/activation/">
                             <li>Активировать код</li>
                         </a>
-                        <a href="#">
+                        <a href="/page/settings/">
                             <li>Настройки</li>
                         </a>
-                        <a href="#">
+                        <a href="/page/exit/">
                             <li>Выход</li>
                         </a>
                     </ul>
@@ -50,7 +50,7 @@
         <!-- Левая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="/page/main">
+                <a href="/page/main/">
                     <li>Главная</li>
                 </a>
             </ul>
@@ -60,7 +60,7 @@
         <!-- Правая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="/page/login">
+                <a href="/page/login/">
                     <li>Войдите чтобы продолжить!</li>
                 </a>
             </ul>
