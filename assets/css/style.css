@@ -512,6 +512,7 @@ input[type='password'],
 input[type='email'],
 input[type='submit']{
     width: 100%;
+    text-align: center;
 }
 
 input[type='submit']{

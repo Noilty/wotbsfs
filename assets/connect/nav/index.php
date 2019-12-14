@@ -1,9 +1,9 @@
-<?php if ( !true ): ?>
+<?php if ( !false ): ?>
     <nav class="grid-nav">
         <!-- Левая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="/wotbsfs/page/main">
+                <a href="/page/main">
                     <li>Главная</li>
                 </a>
                 <a href="#" title="Browser Source (OBS)" target="_blank">
@@ -30,7 +30,7 @@
                 <li>
                     С возвращением <strong>Noilty</strong>!
                     <ul>
-                        <a href="#">
+                        <a href="/page/activation">
                             <li>Активировать код</li>
                         </a>
                         <a href="#">
@@ -50,7 +50,7 @@
         <!-- Левая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="/wotbsfs/page/main">
+                <a href="/page/main">
                     <li>Главная</li>
                 </a>
             </ul>
@@ -60,7 +60,7 @@
         <!-- Правая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="/wotbsfs/page/login">
+                <a href="/page/login">
                     <li>Войдите чтобы продолжить!</li>
                 </a>
             </ul>

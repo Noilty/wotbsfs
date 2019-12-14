@@ -143,9 +143,7 @@
                 <!-- / SOURCE [right] -->
             </div>        
         <?php else: ?>
-        <div class="grid-content">
-            <div class="grid-content__item"><p style="text-align: center;">Активируйте аккаунт</p></div>
-            <div class="grid-content__item"><p style="text-align: center;">Активируйте аккаунт</p></div>
+        <div class="grid-content" style="display: block;">
             <div class="grid-content__item"><p style="text-align: center;">Активируйте аккаунт</p></div>
         </div>        
         <?php endif; ?>
