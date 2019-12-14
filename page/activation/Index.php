@@ -22,24 +22,28 @@
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
-        <div id="form-activation" class="grid-content" style="display: block;" align="center">
-            <div style="padding: 20px 450px 20px 450px;">
-                <form action="" method="POST">
-                    <fieldset>
-                        <legend class="legend-head" align="center">Активация кода</legend>
-                        <fieldset>
-                            <legend>Код</legend>
-                            <input type="text" id="activation-code" name="inputActivationCode" placeholder="XXXX-XXXX-XXXX-XXXX" />
-                        </fieldset>
-                        <hr />
-                        <fieldset>
-                            <legend>Проверка на бота</legend>
-                            <input type="text" name="inputNotBot" />
-                        </fieldset>
-                        <input type="submit" name="submitActivationCode" />
-                    </fieldset>                    
-                </form>
-            </div>
+        <div class="block-content">
+            <fieldset style="border: 0px; padding: 15px 450px 20px 450px;">
+                <div class="grid-content" style="display: block;" align="center">
+                    <div class="grid-content__item">
+                        <form id="form-activation" action="" method="POST">
+                            <fieldset>
+                                <legend class="legend-head" align="center">Активация кода</legend>
+                                <fieldset>
+                                    <legend>Код</legend>
+                                    <input type="text" id="activation-code" name="inputActivationCode" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                                </fieldset>
+                                <hr />
+                                <fieldset>
+                                    <legend>Проверка на бота</legend>
+                                    <input type="text" name="inputNotBot" />
+                                </fieldset>
+                                <input type="submit" name="submitActivationCode" />
+                            </fieldset>                    
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
         </div>
         <!-- / Здесь начинается контент -->
         
