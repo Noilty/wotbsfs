@@ -28,13 +28,14 @@
                     <fieldset>
                         <legend class="legend-head" align="center">Вход</legend>
                         <fieldset>
-                            <legend>Логин / Почта</legend>
-                            <input type="text" name="inputLogin" />
+                            <legend>Электронная почта</legend>
+                            <input type="email" name="inputLogin" />
                         </fieldset>
                         <fieldset>
                             <legend>Пароль</legend>
-                            <input type="text" name="inputPassword" />
+                            <input type="password" name="inputPassword" />
                         </fieldset>
+                        <hr />
                         <fieldset>
                             <legend>Проверка на бота</legend>
                             <input type="text" name="inputNotBot" />
