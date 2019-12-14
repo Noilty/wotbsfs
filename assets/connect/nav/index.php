@@ -3,7 +3,7 @@
         <!-- Левая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="#">
+                <a href="/wotbsfs/page/main">
                     <li>Главная</li>
                 </a>
                 <a href="#" title="Browser Source (OBS)" target="_blank">
@@ -50,7 +50,7 @@
         <!-- Левая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a href="#">
+                <a href="/wotbsfs/page/main">
                     <li>Главная</li>
                 </a>
             </ul>
@@ -60,7 +60,7 @@
         <!-- Правая часть меню -->
         <div class="grid-nav__item">
             <ul>
-                <a id="login-to-continue">
+                <a href="/wotbsfs/page/login">
                     <li>Войдите чтобы продолжить!</li>
                 </a>
             </ul>
