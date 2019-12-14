@@ -27,7 +27,7 @@
         <!-- / Меню навигации -->
         
         <!-- Здесь начинается контент -->
-        <?php if ( !true ): ?>
+        <?php if ( !false ): ?>
             <div class="grid-content">
                 <!-- INPUT [left] -->
                 <div class="grid-content__item">

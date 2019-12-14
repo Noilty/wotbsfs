@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body style="visibility: hidden" onload="setTimeout ('document.body.style.visibility = \'visible\'', 0)">
     
     <div class="content-wrapper">
         

@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
-<body style="visibility: hidden" onload="setTimeout ('document.body.style.visibility = \'visible\'', 0)">    
+<body style="visibility: hidden" onload="setTimeout ('document.body.style.visibility = \'visible\'', 0)">
     
     <div class="content-wrapper">
         
@@ -44,7 +44,7 @@
                             <fieldset>
                                 <legend class="legend-head" align="center">Шаблон</legend>
                                 Идентификатор: <strong>#1</strong><br />
-                                Имя: <strong>Noilty</strong><br />
+                                Автор: <strong>Noilty</strong><br />
                                 Ссылка на автора: <strong>vk.com/romakuzmin</strong><br />
                             </fieldset>
                         </div>
@@ -55,6 +55,7 @@
                                 <legend class="legend-head" align="center">Личное</legend>
                                 Идентификатор: <strong>#1</strong><br />
                                 Никнейм: <strong>Noilty</strong><br />
+                                Роль: <strong>Администратор</strong><br />
                                 Электронная почта: <strong>thenoilty@gmail.com</strong><br />
                                 <hr />
                                 Реальное имя: <strong>Рома</strong><br />
