@@ -1,3 +1,6 @@
+<?php
+require_once '../../assets/require-one.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
     
@@ -24,7 +27,7 @@
         <!-- Здесь начинается контент -->
         <div id="form-signup" class="grid-content" style="display: block;" align="center">
             <div style="padding: 15px 450px 15px 450px;">
-                <form action="" method="POST">
+                <form action="../../assets/connect/core/script/reg.php" method="POST">
                     <fieldset>
                         <legend class="legend-head" align="center">Регистрация</legend>
                         <fieldset>
