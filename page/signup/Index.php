@@ -49,7 +49,8 @@ require_once '../../assets/require-one.php';
                         <hr />
                         <fieldset>
                             <legend>Проверка на бота</legend>
-                            <input type="text" name="input_NotBot" />
+                            <img src="../../assets/connect/captcha/captcha.php">
+                            <input type="text" name="input_UserNotBot" />
                         </fieldset>
                         <input type="submit" name="submit_Signup" />
                     </fieldset>                    

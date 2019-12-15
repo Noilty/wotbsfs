@@ -12,6 +12,7 @@ $db = [
 
 try {
     $pdo = new PDO("$db[driver]:host=$db[host];dbname=$db[name];charset=$db[charset]",$db[user],$db[pass],$db[options]);
+    session_start();
 } catch (PDOException $ex) {
     die('No connect to MySQL');
 }
