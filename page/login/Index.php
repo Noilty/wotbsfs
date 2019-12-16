@@ -27,7 +27,7 @@ require_once '../../assets/require-one.php';
         <!-- Здесь начинается контент -->
         <div class="grid-content" style="display: block;" align="center">
             <div style="padding: 15px 450px 15px 450px;">
-                <form id="form-login" action="" method="POST">
+                <form id="form-login" action="../../assets/connect/core/script/auth.php" method="POST">
                     <fieldset>
                         <legend class="legend-head" align="center">Вход</legend>
                         <fieldset>
@@ -41,7 +41,8 @@ require_once '../../assets/require-one.php';
                         <hr />
                         <fieldset>
                             <legend>Проверка на бота</legend>
-                            <input type="text" name="input_NotBot" />
+                            <img src="../../assets/connect/captcha/captcha.php">
+                            <input type="text" name="input_UserNotBot" />
                         </fieldset>
                         <input type="submit" name="submit_Login" />
                     </fieldset>                    
