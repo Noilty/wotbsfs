@@ -28,6 +28,15 @@ try {
             }
         }
         
+//        $sSql = 'SELECT EXISTS( SELECT db_UserNickName, db_UserEmail FROM users WHERE db_UserNickName = :UserNickName AND db_UserEmail = :UserEmail )';
+//        $stmt = $pdo->prepare($sSql);
+//        $mParams = [
+//            'UserNickName' => $mUser['UserNickName'],
+//            'UserEmail' => $mUser['UserEmail']
+//        ];
+//        $stmt->execute($mParams);
+//        $stmt->fetchColumn()
+        
         if( $bSearchUser ) {
             echo $sMessage[] = 'Логин и(или) Электронная почта уже используются!';
         } else {

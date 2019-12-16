@@ -650,9 +650,11 @@ legend {
         display: flex;
     }
     .grid-nav__item:nth-child(1) {
+        margin-right: auto;
         justify-content: left;
     }
     .grid-nav__item:nth-child(2) {
+        margin-left: auto;
         justify-content: right;
     }
 

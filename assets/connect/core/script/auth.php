@@ -34,7 +34,9 @@ try {
                     echo $sMessage[] = 'Неверный пароль!';
                 } else {
                     echo $sMessage[] = 'Пароль принят!';
+                    $_SESSION['AuthUserEmail'] = $sSearchEmail[0]['db_UserEmail'];
                     echo '<div><a href="/page/main/">На главную</a></div>';
+                    echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                 }
             }
         }
