@@ -25,6 +25,7 @@ require_once '../../assets/require-one.php';
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
+        <?php if( $_SESSION['UserLogged'] ): ?>
         <fieldset style="border: 0px;">
             <div class="block-content info-battle">
                 <fieldset>
@@ -60,7 +61,7 @@ require_once '../../assets/require-one.php';
                                     Идентификатор: <strong>#1</strong><br />
                                     Никнейм: <strong>Noilty</strong><br />
                                     Роль: <strong>Администратор</strong><br />
-                                    Электронная почта: <strong>thenoilty@gmail.com</strong><br />
+                                    Электронная почта: <strong><?= $_SESSION['UserLogged'] ?></strong><br />
                                     <hr />
                                     Реальное имя: <strong>Рома</strong><br />
                                     Секретное слово: <strong>FoMainBitch</strong><br />
@@ -122,7 +123,8 @@ require_once '../../assets/require-one.php';
                                         <hr />
                                         <fieldset>
                                             <legend>Проверка на бота</legend>
-                                            <input type="text" name="input_NotBot" />
+                                            <img src="../../assets/connect/captcha/captcha.php">
+                                            <input type="text" name="input_UserNotBot" />
                                         </fieldset>
                                         <input type="submit" name="input_SettingSource" />
                                     </fieldset>                    
@@ -144,7 +146,8 @@ require_once '../../assets/require-one.php';
                                         <hr />
                                         <fieldset>
                                             <legend>Проверка на бота</legend>
-                                            <input type="text" name="input_NotBot" />
+                                            <img src="../../assets/connect/captcha/captcha.php">
+                                            <input type="text" name="input_UserNotBot" />
                                         </fieldset>
                                         <input type="submit" name="input_SettingTemplate" />
                                     </fieldset>
@@ -176,7 +179,8 @@ require_once '../../assets/require-one.php';
                                         <hr />
                                         <fieldset>
                                             <legend>Проверка на бота</legend>
-                                            <input type="text" name="input_NotBot" />
+                                            <img src="../../assets/connect/captcha/captcha.php">
+                                            <input type="text" name="input_UserNotBot" />
                                         </fieldset>
                                         <input type="submit" name="input_SettingPersonal" />
                                     </fieldset>
@@ -188,6 +192,11 @@ require_once '../../assets/require-one.php';
             </div>
         </fieldset>
         <div class="block-content"></div>
+        <?php else: ?>
+        <div class="grid-content" style="display: block;">
+            <div class="grid-content__item"><p style="text-align: center;">Чтобы продолжить, войдите в аккаунт!</p></div>
+        </div> 
+        <?php endif; ?>
         <!-- / Здесь начинается контент -->
        
         <!-- Подвал -->

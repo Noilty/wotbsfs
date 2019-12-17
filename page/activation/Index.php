@@ -25,7 +25,8 @@ require_once '../../assets/require-one.php';
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
-        <div class="block-content">
+        <?php if( $_SESSION['UserLogged'] ): ?>
+       <div class="block-content">
             <fieldset style="border: 0px; padding: 15px 450px 20px 450px;">
                 <div class="grid-content" style="display: block;" align="center">
                     <div class="grid-content__item">
@@ -34,12 +35,13 @@ require_once '../../assets/require-one.php';
                                 <legend class="legend-head" align="center">Активация кода</legend>
                                 <fieldset>
                                     <legend>Код</legend>
-                                    <input type="text" id="activation-code" name="inputActivationCode" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                                    <input type="text" id="activation-code" name="input_ActivationCode" placeholder="XXXX-XXXX-XXXX-XXXX" />
                                 </fieldset>
                                 <hr />
                                 <fieldset>
                                     <legend>Проверка на бота</legend>
-                                    <input type="text" name="inputNotBot" />
+                                    <img src="../../assets/connect/captcha/captcha.php">
+                                    <input type="text" name="input_UserNotBot" />
                                 </fieldset>
                                 <input type="submit" name="submitActivationCode" />
                             </fieldset>                    
@@ -48,6 +50,11 @@ require_once '../../assets/require-one.php';
                 </div>
             </fieldset>
         </div>
+        <?php else: ?>
+        <div class="grid-content" style="display: block;">
+            <div class="grid-content__item"><p style="text-align: center;">Чтобы продолжить, войдите в аккаунт!</p></div>
+        </div> 
+        <?php endif; ?>
         <!-- / Здесь начинается контент -->
         
         <!-- Подвал -->

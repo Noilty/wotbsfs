@@ -19,7 +19,7 @@ try {
                 echo $value.'<br />';
             }
         } else {
-            $sSql = 'SELECT db_UserEmail, db_UserPassword FROM users WHERE db_UserEmail = :UserEmail';
+            $sSql = 'SELECT db_UserId, db_UserEmail, db_UserPassword FROM users WHERE db_UserEmail = :UserEmail';
             $mParams = [
                 'UserEmail' => $mUser['UserEmail'],
             ];
@@ -34,9 +34,24 @@ try {
                     echo $sMessage[] = 'Неверный пароль!';
                 } else {
                     echo $sMessage[] = 'Пароль принят!';
-                    $_SESSION['AuthUserEmail'] = $sSearchEmail[0]['db_UserEmail'];
+                    
+                    $sSql = 'SELECT db_KeyId, db_UserId FROM keys_users WHERE db_UserId = :UserId';
+                    $mParams = [
+                        'UserId' => $sSearchEmail[0]['db_UserId'],
+                    ];                    
+                    $stmt = $pdo->prepare($sSql);
+                    $stmt->execute($mParams);
+                    $sSearchKeyUser = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    if ( $sSearchKeyUser ) {
+                        $_SESSION['ActivatedAccount'] = true;
+                    } else {
+                        $_SESSION['ActivatedAccount'] = false;
+                    }
+                    
+                    $_SESSION['UserLogged'] = $sSearchEmail[0]['db_UserEmail'];
                     echo '<div><a href="/page/main/">На главную</a></div>';
-                    echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
+                    //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                 }
             }
         }

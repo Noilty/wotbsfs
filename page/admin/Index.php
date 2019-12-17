@@ -26,17 +26,29 @@ require_once '../../assets/require-one.php';
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
-        <div class="block-content">
-            <fieldset style="border: 0px;">
-                <div class="grid-content">
-                    <div class="grid-content__item">
-                        <div class="info-battle">
-                            Скоро!
+        <?php if( $_SESSION['UserLogged'] ): ?>
+            <?php if( $_SESSION['ActivatedAccount'] ): ?>
+            <div class="block-content">
+                <fieldset style="border: 0px;">
+                    <div class="grid-content">
+                        <div class="grid-content__item">
+                            <div class="info-battle">
+                                Скоро!
+                            </div>
                         </div>
                     </div>
+                </fieldset>
+            </div>
+            <?php else: ?>
+                <div class="grid-content" style="display: block;">
+                    <div class="grid-content__item"><p style="text-align: center;">Активируйте аккаунт!</p></div>
                 </div>
-            </fieldset>
-        </div>
+            <?php endif; ?>
+        <?php else: ?>
+        <div class="grid-content" style="display: block;">
+            <div class="grid-content__item"><p style="text-align: center;">Чтобы продолжить, войдите в аккаунт!</p></div>
+        </div> 
+        <?php endif; ?>
         <!-- / Здесь начинается контент -->
        
         <!-- Подвал -->

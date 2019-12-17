@@ -1,4 +1,4 @@
-<?php if ( isset($_SESSION['AuthUserEmail']) ): ?>
+<?php if ( isset($_SESSION['UserLogged']) ): ?>
 <nav class="grid-nav">
     <!-- Левая часть меню -->
     <div class="grid-nav__item">
@@ -28,7 +28,7 @@
     <div class="grid-nav__item">
         <ul>
             <li>
-                С возвращением <strong><?= $_SESSION['AuthUserEmail'] ?></strong>!
+                С возвращением <strong><?= $_SESSION['UserLogged'] ?></strong>!
                 <ul>
                     <a href="/page/activation/">
                         <li>Активировать код</li>
@@ -66,7 +66,10 @@
     <div class="grid-nav__item">
         <ul>
             <a href="/page/login/">
-                <li>Войдите чтобы продолжить!</li>
+                <li>Войти</li>
+            </a>
+            <a href="/page/signup/">
+                <li>Создать аккаунт</li>
             </a>
         </ul>
     </div>
