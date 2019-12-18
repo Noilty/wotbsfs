@@ -26,7 +26,7 @@ require_once '../../assets/require-one.php';
 
         <!-- Здесь начинается контент -->
         <?php if( $_SESSION['UserLogged'] ): ?>
-       <div class="block-content">
+        <div class="block-content">
             <fieldset style="border: 0px; padding: 15px 450px 20px 450px;">
                 <div class="grid-content" style="display: block;" align="center">
                     <div class="grid-content__item">

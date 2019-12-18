@@ -5,27 +5,67 @@ $DATA = $_POST;
 $sMessage = [];
 
 $mKey = [
-    'ActivationKey' => trim( $DATA['input_ActivationKey'] ),
+    'ActivationKey' => trim( strtoupper($DATA['input_ActivationKey']) ),
     'UserNotBot' => trim( $DATA['input_UserNotBot'] )
 ];
 
 try {
-    if( $mUser['UserNotBot'] != $_SESSION['Captcha'] ) {
+    if( $mKey['UserNotBot'] != $_SESSION['Captcha'] ) {
         echo $sMessage[] = 'Проверка на бота провалилась!';
         
         echo '<div><a href="/page/main/">На главную</a></div>';
         //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
     } else {
-        $sSql = 'SELECT db_UserId, db_UserEmail, db_UserPassword, db_UserDateVisit FROM users WHERE db_UserEmail = :UserEmail';
-        $mParams = [
-            'UserEmail' => $mUser['UserEmail'],
-        ];
-        $stmt = $pdo->prepare($sSql);
-        $stmt->execute($mParams);
-        $sSearchEmail = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $bSearchKey = false;
+        $bKeyActivated = false;
+        $sSql = 'SELECT * FROM `keys`';
+        $mAllKeys = $pdo->query($sSql)->fetchAll(PDO::FETCH_ASSOC);
+        
+        for ($i = 0; $i < count($mAllKeys); $i++) {
+            if( $mAllKeys[$i]['db_KeyName'] === strtoupper($mKey['ActivationKey']) ) {
+                $bSearchKey = true;
+                if( $mAllKeys[$i]['db_KeyStatus'] ) {
+                    $bKeyActivated = true;
+                } else {
+                    $test = $mAllKeys[$i]['db_KeyId'];
+                }
+            }
+        }
+        
+        if( !$bSearchKey ) {
+            echo $sMessage[] = 'Не нашли ключ';
+        } else {
+            //Нашли ключ
+            if( $bKeyActivated ) {
+                echo $sMessage[] = 'Ключ недействителен! попробуйте другой.';
+            } else {
+                //У ключа статус false т.е он не занят
+                $sSql = 'INSERT INTO keys_users(db_KeyId, db_UserId) VALUES(:KeyId, :UserId)';
+                $mParams = [
+                    'KeyId' => $test,
+                    'UserId' => $_SESSION['db_UserId']
+                ];
+                $stmt = $pdo->prepare($sSql);
+                $stmt->execute($mParams);
+                
+                if( $stmt ) {
+                    echo $sMessage[] = 'Ключ активирован!';
+                    
+                    $sSql = 'UPDATE `keys` SET db_KeyStatus = :KeyStatus WHERE db_KeyId = :KeyId';
+                    $mParams = [
+                        'KeyStatus' => 1,
+                        'KeyId' => $test
+                    ];
+                    $stmt = $pdo->prepare($sSql);
+                    $stmt->execute($mParams);
+                    
+                    $_SESSION['ActivatedAccount'] = true;
+                }
+            }
+        }
     }
 } catch (Exception $exc) {
     //echo $exc->getTraceAsString();
     //echo MyDump($exc);
-    echo $sMessage[] = 'Exception: activation.php!';
+    echo $sMessage[] = 'Exception: key.php!';
 }
