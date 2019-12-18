@@ -58,17 +58,18 @@ require_once '../../assets/require-one.php';
                             <div class="info-battle">
                                 <fieldset>
                                     <legend class="legend-head" align="center">Личное</legend>
-                                    Идентификатор: <strong>#1</strong><br />
-                                    Никнейм: <strong>Noilty</strong><br />
-                                    Роль: <strong>Администратор</strong><br />
-                                    Электронная почта: <strong><?= $_SESSION['UserLogged'] ?></strong><br />
+                                    Идентификатор: <strong>#<?= $_SESSION['db_UserId'] ?></strong><br />
+                                    Никнейм: <strong><?= $_SESSION['db_UserNickName'] ?></strong><br />
+                                    Роль: <strong>NaN</strong><br />
+                                    Электронная почта: <strong><?= $_SESSION['db_UserEmail'] ?></strong> <?= $UserEmailConfirmed = ( $_SESSION['db_UserEmailConfirmed'] === 'true' ) ? '<img src="/assets/img/email-ok.png" title="Подтвержденный аккаунт" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Неподтвержденный аккаунт" style="width: 16px;" />' ?><br />
                                     <hr />
-                                    Реальное имя: <strong>Рома</strong><br />
-                                    Секретное слово: <strong>FoMainBitch</strong><br />
-                                    Дата рождения: <strong>05.04.2019</strong>
+                                    Реальное имя: <strong><?= $UserName = ( $_SESSION['db_UserName'] ) ? $_SESSION['db_UserName'] : 'Пусто' ?></strong><br />
+                                    Пол: <strong><?= $GenderUser = ( $_SESSION['db_GenderUser'] ) ? $_SESSION['db_GenderUser'] : 'Пусто' ?></strong><br />
+                                    Секретное слово: <strong><?= $UserSecretWord = ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong><br />
+                                    Дата рождения: <strong><?= $UserDateBirth = ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong>
                                     <hr />
-                                    Дата регистрации: <strong>05.05.2019</strong><br />
-                                    Дата последнего посещения: <strong>05.05.2019</strong><br />
+                                    Дата регистрации: <strong><?= $_SESSION['db_UserDateRegister'] ?></strong><br />
+                                    Дата последнего посещения: <strong><?= $_SESSION['db_UserDateVisit'] ?></strong><br />
                                 </fieldset>
                             </div>
                         </div>

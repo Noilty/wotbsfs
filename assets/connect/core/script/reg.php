@@ -13,8 +13,11 @@ $mUser = [
 ];
 
 try {
-    if( $mUser['UserNotBot'] != $_SESSION['rand_code'] ) {
+    if( $mUser['UserNotBot'] != $_SESSION['Captcha'] ) {
         echo $sMessage[] = 'Проверка на бота провалилась!';
+        
+        echo '<div><a href="/page/main/">На главную</a></div>';
+        //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
     } else {
         $bSearchUser = false;
         $sSql = 'SELECT db_UserNickName, db_UserEmail FROM users';
@@ -39,9 +42,15 @@ try {
         
         if( $bSearchUser ) {
             echo $sMessage[] = 'Логин и(или) Электронная почта уже используются!';
+            
+            echo '<div><a href="/page/main/">На главную</a></div>';
+            //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
         } else {
             if( $mUser['UserPassword'] != $mUser['UserPasswordRe'] ) {
                 echo $sMessage[] = 'Пароли не совпадают!';
+                
+                echo '<div><a href="/page/main/">На главную</a></div>';
+                //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
             } else {
                 if( !EmptyCheck($mUser) ) {
                     $sSql = 'INSERT INTO users(db_UserNickName, db_UserPassword, db_UserEmail, db_UserEmailConfirmed, db_UserDateRegister) VALUES(:UserNickName, :UserPassword, :UserEmail, :UserEmailConfirmed, NOW())';
@@ -56,10 +65,15 @@ try {
 
                     if( $stmt ) {
                         echo $sMessage[] = 'Регистрация успешна!';
+                        echo '<div><a href="/page/main/">На главную</a></div>';
+                        //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                     }
                 } else {
                     foreach (EmptyCheck($mUser) as $value) {
                         echo $value.'<br />';
+                        
+                        echo '<div><a href="/page/main/">На главную</a></div>';
+                        //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                     }
                 }
             }

@@ -11,15 +11,21 @@ $mUser = [
 ];
 
 try {
-    if( $mUser['UserNotBot'] != $_SESSION['rand_code'] ) {
+    if( $mUser['UserNotBot'] != $_SESSION['Captcha'] ) {
         echo $sMessage[] = 'Проверка на бота провалилась!';
+        
+        echo '<div><a href="/page/main/">На главную</a></div>';
+        //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
     } else {
         if( EmptyCheck($mUser) ) {
             foreach (EmptyCheck($mUser) as $value) {
                 echo $value.'<br />';
             }
+            
+            echo '<div><a href="/page/main/">На главную</a></div>';
+            //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
         } else {
-            $sSql = 'SELECT db_UserId, db_UserEmail, db_UserPassword FROM users WHERE db_UserEmail = :UserEmail';
+            $sSql = 'SELECT * FROM users WHERE db_UserEmail = :UserEmail';
             $mParams = [
                 'UserEmail' => $mUser['UserEmail'],
             ];
@@ -29,19 +35,34 @@ try {
 
             if( !$sSearchEmail ) {
                 echo $sMessage[] = 'Аккаунт не найден!';
+                
+                echo '<div><a href="/page/main/">На главную</a></div>';
+                //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
             } else {
                 if( !password_verify($mUser['UserPassword'], $sSearchEmail[0]['db_UserPassword']) ) {
                     echo $sMessage[] = 'Неверный пароль!';
                 } else {
                     echo $sMessage[] = 'Пароль принят!';
                     
-                    $sSql = 'SELECT db_KeyId, db_UserId FROM keys_users WHERE db_UserId = :UserId';
+                    $sSql = [
+                        'keys_users' => 'SELECT db_KeyId, db_UserId FROM keys_users WHERE db_UserId = :UserId',
+                        'users' => 'UPDATE users SET db_UserDateVisit = NOW() WHERE db_UserEmail = :UserEmail'
+                    ];
                     $mParams = [
-                        'UserId' => $sSearchEmail[0]['db_UserId'],
-                    ];                    
-                    $stmt = $pdo->prepare($sSql);
-                    $stmt->execute($mParams);
-                    $sSearchKeyUser = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        'keys_users' => [
+                            'UserId' => $sSearchEmail[0]['db_UserId']
+                        ],
+                        'users' => [
+                            'UserEmail' => $sSearchEmail[0]['db_UserEmail']
+                        ]
+                    ];
+                    
+                    $stmtKeysUsers = $pdo->prepare($sSql['keys_users']);
+                    $stmtKeysUsers->execute($mParams['keys_users']);
+                    $sSearchKeyUser = $stmtKeysUsers->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    $stmt1Users = $pdo->prepare($sSql['users']);
+                    $stmt1Users->execute($mParams['users']);
                     
                     if ( $sSearchKeyUser ) {
                         $_SESSION['ActivatedAccount'] = true;
@@ -49,7 +70,12 @@ try {
                         $_SESSION['ActivatedAccount'] = false;
                     }
                     
-                    $_SESSION['UserLogged'] = $sSearchEmail[0]['db_UserEmail'];
+                    $_SESSION['UserLogged'] = $sSearchEmail[0]['db_UserNickName'];
+                    
+                    foreach ($sSearchEmail[0] as $key => $value) {
+                        $_SESSION[$key] = $sSearchEmail[0][$key];
+                    }
+                    
                     echo '<div><a href="/page/main/">На главную</a></div>';
                     //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                 }

@@ -5,7 +5,7 @@
         $string .= chr(rand(97, 122));
     }
 
-    $_SESSION['rand_code'] = $string;
+    $_SESSION['Captcha'] = $string;
 
     $dir = "fonts/";
 
@@ -15,7 +15,7 @@
     $white = imagecolorallocate($image, 255, 255, 255);
 
     imagefilledrectangle($image,0,0,399,99,$white);
-    imagettftext ($image, 15, 0, 30, 20, $color, $dir."verdana.ttf", $_SESSION['rand_code']);
+    imagettftext ($image, 15, 0, 30, 20, $color, $dir."verdana.ttf", $_SESSION['Captcha']);
 
     header("Content-type: image/png");
     imagepng($image);

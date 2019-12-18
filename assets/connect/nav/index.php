@@ -30,8 +30,8 @@
             <li>
                 С возвращением <strong><?= $_SESSION['UserLogged'] ?></strong>!
                 <ul>
-                    <a href="/page/activation/">
-                        <li>Активировать код</li>
+                    <a href="/page/key/">
+                        <li>Использовать код</li>
                     </a>
                     <a href="/page/settings/">
                         <li>Настройки</li>

@@ -7,7 +7,7 @@ require_once '../../assets/require-one.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
-    <title>Activation - WOT: BSFS</title>    
+    <title>Key - WOT: BSFS</title>    
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
@@ -30,12 +30,12 @@ require_once '../../assets/require-one.php';
             <fieldset style="border: 0px; padding: 15px 450px 20px 450px;">
                 <div class="grid-content" style="display: block;" align="center">
                     <div class="grid-content__item">
-                        <form id="form-activation" action="" method="POST">
+                        <form id="form-activation" action="../../assets/connect/core/script/key.php" method="POST">
                             <fieldset>
-                                <legend class="legend-head" align="center">Активация кода</legend>
+                                <legend class="legend-head" align="center">введите Ваш ключ</legend>
                                 <fieldset>
-                                    <legend>Код</legend>
-                                    <input type="text" id="activation-code" name="input_ActivationCode" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                                    <legend>Ключ</legend>
+                                    <input type="text" id="activation-code" name="input_ActivationKey" placeholder="XXXX-XXXX-XXXX-XXXX" />
                                 </fieldset>
                                 <hr />
                                 <fieldset>
