@@ -36,7 +36,7 @@
                     <a href="/page/settings/">
                         <li>Настройки</li>
                     </a>
-                    <?php if ( !false ): ?>
+                    <?php if ( (int)$_SESSION['UserRole'] === 1 ): ?>
                     <a href="/page/admin/">
                         <li class="admin">Администратор</li>
                     </a>
