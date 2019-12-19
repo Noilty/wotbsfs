@@ -60,7 +60,7 @@ require_once '../../assets/require-one.php';
                                     <legend class="legend-head" align="center">Личное</legend>
                                     Идентификатор: <strong>#<?= $_SESSION['db_UserId'] ?></strong><br />
                                     Никнейм: <strong><?= $_SESSION['db_UserNickName'] ?></strong><br />
-                                    Роль: <strong>NaN</strong><br />
+                                    Роль: <strong><?= $UserRole = ( $_SESSION['UserRole'] ) ? $_SESSION['UserRole'] : 'Обновление...' ?></strong><br />
                                     Электронная почта: <strong><?= $_SESSION['db_UserEmail'] ?></strong> <?= $UserEmailConfirmed = ( $_SESSION['db_UserEmailConfirmed'] === 'true' ) ? '<img src="/assets/img/email-ok.png" title="Подтвержденный аккаунт" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Неподтвержденный аккаунт" style="width: 16px;" />' ?><br />
                                     <hr />
                                     Реальное имя: <strong><?= $UserName = ( $_SESSION['db_UserName'] ) ? $_SESSION['db_UserName'] : 'Пусто' ?></strong><br />
@@ -69,7 +69,7 @@ require_once '../../assets/require-one.php';
                                     Дата рождения: <strong><?= $UserDateBirth = ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong>
                                     <hr />
                                     Дата регистрации: <strong><?= $_SESSION['db_UserDateRegister'] ?></strong><br />
-                                    Дата последнего посещения: <strong><?= $_SESSION['db_UserDateVisit'] ?></strong><br />
+                                    Дата последнего посещения: <strong><?= $UserDateVisit = ( $_SESSION['db_UserDateVisit'] ) ? $_SESSION['db_UserDateVisit'] : 'Обновление...' ?></strong><br />
                                 </fieldset>
                             </div>
                         </div>
@@ -172,6 +172,13 @@ require_once '../../assets/require-one.php';
                                                 <legend>Пароль</legend>
                                                 <input type="password" name="input_UserPassword" />
                                             </fieldset>
+                                        </fieldset>
+                                        <fieldset>
+                                            <legend>Пол</legend>
+                                            <select name="select_UserGender">
+                                                <option value="male">Мужчина</option>
+                                                <option value="female">Женщина</option>
+                                            </select>
                                         </fieldset>
                                         <fieldset>
                                             <legend>Дата рождения</legend>
