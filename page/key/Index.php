@@ -7,8 +7,9 @@ require_once '../../assets/require-one.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
-    <title>Key - WOT: BSFS</title>    
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>Key - WOT: BSFS</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/new-style.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
@@ -26,29 +27,39 @@ require_once '../../assets/require-one.php';
 
         <!-- Здесь начинается контент -->
         <?php if( $_SESSION['UserLogged'] ): ?>
-        <div class="block-content">
-            <fieldset style="border: 0px; padding: 15px 450px 20px 450px;">
-                <div class="grid-content" style="display: block;" align="center">
-                    <div class="grid-content__item">
-                        <form id="form-activation" action="../../assets/connect/core/script/key.php" method="POST">
-                            <fieldset>
-                                <legend class="legend-head" align="center">введите Ваш ключ</legend>
-                                <fieldset>
-                                    <legend>Ключ</legend>
-                                    <input type="text" id="activation-code" name="input_ActivationKey" placeholder="XXXX-XXXX-XXXX-XXXX" />
+        <div class="container clearfix">
+            <main class="content">
+                <!-- for-example -->
+                <fieldset class="fieldset_content">
+                    <legend class="legend_title">введите Ваш ключ</legend>
+                    <div class="grid-content">
+                        <div class="grid-content__item">
+                            <form id="form-activation" action="../../assets/connect/core/script/key.php" method="POST">
+                                <fieldset class="fieldset_content__item">
+                                    <legend class="legend_title__item" align="center">Начинайте вводить ключ</legend>
+                                    <fieldset>
+                                        <legend>Ключ</legend>
+                                        <input type="text" id="activation-code" name="input_ActivationKey" placeholder="XXXX-XXXX-XXXX-XXXX" />
+                                    </fieldset>
+                                    <hr />
+                                    <fieldset>
+                                        <legend>Проверка на бота</legend>
+                                        <img src="../../assets/connect/captcha/captcha.php">
+                                        <input type="text" name="input_UserNotBot" />
+                                    </fieldset>
+                                    <input type="submit" name="submitActivationCode" />
                                 </fieldset>
-                                <hr />
-                                <fieldset>
-                                    <legend>Проверка на бота</legend>
-                                    <img src="../../assets/connect/captcha/captcha.php">
-                                    <input type="text" name="input_UserNotBot" />
-                                </fieldset>
-                                <input type="submit" name="submitActivationCode" />
-                            </fieldset>                    
-                        </form>
+                            </form>
+                        </div>
+                        <div class="grid-content__item">
+                            <fieldset class="fieldset_content__item">
+                                <legend class="legend_title__item">Вы активировали ключи</legend>
+                                {CONTENT}
+                            </fieldset>
+                        </div>
                     </div>
-                </div>
-            </fieldset>
+                </fieldset>
+            </main>
         </div>
         <?php else: ?>
         <div class="grid-content" style="display: block;">

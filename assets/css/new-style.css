@@ -1,0 +1,323 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20.12.2019, 18:20:09
+    Author     : MyPC0
+*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #fff;
+    background-color: #666;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+/*
+a[href*="https"] {
+  background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+  background-size: 16px 16px;
+  padding-right: 19px;
+  filter: invert(100%);
+}
+*/
+header {
+    background: darkcyan;
+    height: auto;
+    background: #6CAEDD;
+    color: #fff;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+}
+
+nav {
+    height: auto;
+    background: steelblue;
+    color: #fff;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+fieldset {
+    border: 1px solid black;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #000;
+    background-image: -webkit-linear-gradient(left, #fff, #000, #fff);
+    background-image: -moz-linear-gradient(left, #fff, #000, #fff);
+    background-image: -ms-linear-gradient(left, #fff, #000, #fff);
+    background-image: -o-linear-gradient(left, #fff, #000, #fff);
+    margin: 10px 0px 10px 0px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    height: auto;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    margin: 20px 0px 0px 0px;
+}
+    footer a {
+        font-family: helvetica;
+    }
+
+    footer a:hover {
+        color: #F2C811;
+    }
+
+    footer a:active {
+        color: #F2C811;
+    }
+
+/* Top Меню */
+ul {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 1;
+}
+ul li {
+    display: inline-block;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+ul li ul {
+    padding: 2px;
+    position: absolute;
+    top: 50px;
+    right: -2px;
+    width: 204px;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    text-align: end;
+    /*text-transform: uppercase;*/
+}
+ul li ul li { 
+    background: #333; 
+    display: block; 
+    color: #fff;
+}
+ul li:hover {
+    background: #212121;
+    color: #fff;
+}
+ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+ul li ul li:hover { 
+    background: #4A4A4A; 
+}
+.admin {
+    background-color: indianred;
+}
+.admin:hover {
+    background-color: coral;
+}
+/* / Top Меню */
+
+/* Стилизация элементов формы */
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='submit'],
+input[type='date'],
+select {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+input[type='submit']{
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 0px 0px 0px;
+    color: #fff;
+    background-color: black;
+    border: 1px solid #000;
+    /*transition: .3s;*/
+}
+
+input[type='submit']:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+/* / Стилизация элементов формы*/
+
+.battle-win {
+    border: 1px solid black;
+    color: #fff;
+    background-color: green;
+}
+
+.battle-fail {
+    border: 1px solid black;
+    color: #fff;
+    background-color: brown;
+}
+
+.clear-session {
+    border: 1px solid black;
+    padding: 5px;
+    display: none;
+}
+
+.fieldset_content {
+    margin: 15px 20px 0px 20px;
+}
+    .fieldset_content__item {
+        margin: 0px 5px 5px 5px;
+    }
+    
+.legend_title {
+    border: 1px solid black;
+    text-transform: uppercase;
+    margin: 0 auto;
+    padding: 0px 5px 0px 5px;
+}
+    .legend_title__item {
+        margin: 0 auto;
+        padding: 0px 5px 0px 5px;
+    }
+
+.content-wrapper {
+    color: #000;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 1170px;
+    background-color: #fff;
+    border-left: solid 5px #F2C811;
+    border-right: solid 5px #F2C811;
+}
+
+.container {
+    flex-wrap: nowrap;
+}
+
+.content {
+    width: 100%;
+    flex-direction: column;
+    flex: 1 1 auto;
+    order: 0;
+    order: 2; /* 1 */
+}
+
+.sidebar {
+    flex: 0 0 auto;
+}
+    .sidebar__left {
+        /*background-color: #6CAEDD;*/
+        width: 225px;
+        order: 1;
+        order: 0;
+    }
+    .sidebar__right {
+        /*background-color: #364850;*/
+        width: 225px;
+        order: 2;
+        order: 1; /* 2 */
+    }
+
+.grid-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    color: #000;
+}
+    .grid-content__item {
+        display: grid;
+    }
+
+.grid-header {
+    display: grid;
+    grid-template-columns: 75px 1fr 75px;
+    align-items: center;
+    height: 70px;
+    
+    font-size: 24px;    
+    background-color: #000;
+}
+    .grid-header__item:nth-child(1) {
+        display: grid;
+        justify-content: left;
+        filter: invert(100%);
+        margin: 0px 0px 0px 25px;
+    }
+    .grid-header__item:nth-child(2) {
+        display: grid;
+        margin: 0 auto;
+        
+
+    }
+    .grid-header__item:nth-child(3) {
+        display: grid;
+        justify-content: right;
+        filter: invert(100%);
+        margin: 0px 25px 0px 0px;
+    }
+    
+.grid-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #333;
+}
+    .grid-nav__item {
+        display: flex;
+    }
+    .grid-nav__item:nth-child(1) {
+        margin-right: auto;
+        justify-content: left;
+    }
+    .grid-nav__item:nth-child(2) {
+        margin-left: auto;
+        justify-content: right;
+    }
+    
+.grid-statistics {
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+}
+    .grid-statistics__item {
+        display: flex;
+    }
+    .grid-statistics__item:nth-child(odd) {
+        justify-content: left;
+    }
+    .grid-statistics__item:nth-child(even) {
+        justify-content: right;
+    }

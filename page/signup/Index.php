@@ -7,8 +7,9 @@ require_once '../../assets/require-one.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
-    <title>Sign Up - WOT: BSFS</title>    
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>Sign Up - WOT: BSFS</title>   
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/new-style.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
@@ -25,38 +26,52 @@ require_once '../../assets/require-one.php';
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
-        <div id="form-signup" class="grid-content" style="display: block;" align="center">
-            <div style="padding: 15px 450px 15px 450px;">
-                <form action="../../assets/connect/core/script/reg.php" method="POST">
-                    <fieldset>
-                        <legend class="legend-head" align="center">Регистрация</legend>
-                        <fieldset>
-                            <legend>Логин</legend>
-                            <input type="text" name="input_UserNickName" />
-                        </fieldset>
-                        <fieldset>
-                            <legend>Пароль</legend>
-                            <input type="password" name="input_UserPassword" />
-                        </fieldset>
-                        <fieldset>
-                            <legend>Повторите пароль</legend>
-                            <input type="password" name="input_UserPasswordRe" />
-                        </fieldset>
-                        <fieldset>
-                            <legend>Электронная почта</legend>
-                            <input type="email" name="input_UserEmail" />
-                        </fieldset>
-                        <hr />
-                        <fieldset>
-                            <legend>Проверка на бота</legend>
-                            <img src="../../assets/connect/captcha/captcha.php">
-                            <input type="text" name="input_UserNotBot" />
-                        </fieldset>
-                        <input type="submit" name="submit_Signup" />
-                    </fieldset>                    
-                </form>
-                <a href="/page/login/" style="color: #000;">Есть аккаунт?</a>
-            </div>
+        <div class="container clearfix">
+            <main class="content">
+                <!-- for-example -->
+                <fieldset class="fieldset_content">
+                    <legend class="legend_title">Регистрация</legend>
+                    <div class="grid-content">
+                        <div class="grid-content__item">
+                            <form action="../../assets/connect/core/script/reg.php" method="POST">
+                                <fieldset class="fieldset_content__item">
+                                    <legend class="legend_title__item" align="center">Начните вводить регистрационные данные</legend>
+                                    <fieldset>
+                                        <legend>Логин</legend>
+                                        <input type="text" name="input_UserNickName" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Пароль</legend>
+                                        <input type="password" name="input_UserPassword" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Повторите пароль</legend>
+                                        <input type="password" name="input_UserPasswordRe" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Электронная почта</legend>
+                                        <input type="email" name="input_UserEmail" />
+                                    </fieldset>
+                                    <hr />
+                                    <fieldset>
+                                        <legend>Проверка на бота</legend>
+                                        <img src="../../assets/connect/captcha/captcha.php">
+                                        <input type="text" name="input_UserNotBot" />
+                                    </fieldset>
+                                    <input type="submit" name="submit_Signup" />
+                                </fieldset>                    
+                            </form>
+                            <a href="/page/login/" style="color: #000; text-align: center;">Есть аккаунт?</a>
+                        </div>
+                        <div class="grid-content__item">
+                            <fieldset class="fieldset_content__item">
+                                <legend class="legend_title__item">При заполнении формы учтите данные аспекты</legend>
+                                {CONTENT}
+                            </fieldset>
+                        </div>
+                    </div>
+                </fieldset>
+            </main>
         </div>
         <!-- / Здесь начинается контент -->
         

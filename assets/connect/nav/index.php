@@ -30,11 +30,14 @@
             <li>
                 С возвращением <strong><?= $_SESSION['UserLogged'] ?></strong>!
                 <ul>
+                    <a href="/page/profile/">
+                        <li>Профиль</li>
+                    </a>
                     <a href="/page/key/">
                         <li>Использовать код</li>
                     </a>
                     <a href="/page/settings/">
-                        <li>Настройки</li>
+                        <li>Настроить источник</li>
                     </a>
                     <?php if ( (int)$_SESSION['UserRole'] === 1 ): ?>
                     <a href="/page/admin/">

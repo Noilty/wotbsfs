@@ -7,8 +7,9 @@ require_once '../../assets/require-one.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
-    <title>Log In - WOT: BSFS</title>    
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>Log In - WOT: BSFS</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/new-style.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 
@@ -25,30 +26,44 @@ require_once '../../assets/require-one.php';
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
-        <div class="grid-content" style="display: block;" align="center">
-            <div style="padding: 15px 450px 15px 450px;">
-                <form id="form-login" action="../../assets/connect/core/script/auth.php" method="POST">
-                    <fieldset>
-                        <legend class="legend-head" align="center">Вход</legend>
-                        <fieldset>
-                            <legend>Электронная почта</legend>
-                            <input type="email" name="input_UserEmail" />
-                        </fieldset>
-                        <fieldset>
-                            <legend>Пароль</legend>
-                            <input type="password" name="input_UserPassword" />
-                        </fieldset>
-                        <hr />
-                        <fieldset>
-                            <legend>Проверка на бота</legend>
-                            <img src="../../assets/connect/captcha/captcha.php">
-                            <input type="text" name="input_UserNotBot" />
-                        </fieldset>
-                        <input type="submit" name="submit_Login" />
-                    </fieldset>                    
-                </form>
-                <a href="/page/signup/" style="color: #000;">Нет аккаунта?</a>
-            </div>
+        <div class="container clearfix">
+            <main class="content">
+                <!-- for-example -->
+                <fieldset class="fieldset_content">
+                    <legend class="legend_title">Вход</legend>
+                    <div class="grid-content">
+                        <div class="grid-content__item">
+                            <form id="form-login" action="../../assets/connect/core/script/auth.php" method="POST">
+                                <fieldset class="fieldset_content__item">
+                                    <legend class="legend_title__item" align="center">Начните вводить данные для входа</legend>
+                                    <fieldset>
+                                        <legend>Электронная почта</legend>
+                                        <input type="email" name="input_UserEmail" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Пароль</legend>
+                                        <input type="password" name="input_UserPassword" />
+                                    </fieldset>
+                                    <hr />
+                                    <fieldset>
+                                        <legend>Проверка на бота</legend>
+                                        <img src="../../assets/connect/captcha/captcha.php">
+                                        <input type="text" name="input_UserNotBot" />
+                                    </fieldset>
+                                    <input type="submit" name="submit_Login" />
+                                </fieldset>                    
+                            </form>
+                            <a href="/page/signup/" style="color: #000; text-align: center;">Нет аккаунта?</a>
+                        </div>
+                        <div class="grid-content__item">
+                            <fieldset class="fieldset_content__item">
+                                <legend class="legend_title__item">При заполнении формы учтите данные аспекты</legend>
+                                {CONTENT}
+                            </fieldset>
+                        </div>
+                    </div>
+                </fieldset>
+            </main>
         </div>
         <!-- / Здесь начинается контент -->
         
