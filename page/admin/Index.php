@@ -41,10 +41,10 @@ require_once '../../assets/require-one.php';
                 <div class="tabs">
                     <ul class="tabs__caption">
                         <li class="active">Пользователи</li>
-                        <li>keys</li>
-                        <li>keys_users</li>
-                        <li>roles</li>
-                        <li>roles_users</li>
+                        <li>Ключи</li>
+                        <li>Роли</li>
+                        <li>Шаблоны Источника</li>
+                        <li>Обновление</li>
                     </ul>
 
                     <div class="tabs__content  active">
@@ -75,7 +75,7 @@ require_once '../../assets/require-one.php';
                     <div class="grid-content__item">
                         <fieldset class="fieldset_content__item">
                             <legend class="legend_title__item" align="center">users</legend>
-                            <div style="width: 900px;height: auto;overflow-x: auto;">
+                            <div class="users-table">
                                 <table border="1">
                                     <tr>
                                         <th>db_UserId</th>
@@ -110,7 +110,7 @@ require_once '../../assets/require-one.php';
                     <div class="grid-content__item">
                         <fieldset class="fieldset_content__item">
                             <legend class="legend_title__item">keys</legend>
-                            <div style="width: 415px;height: auto;overflow-x: auto;">
+                            <div class="keys-table">
                                 <table border="1">
                                     <tr>
                                         <th>db_KeyId</th>
@@ -133,7 +133,7 @@ require_once '../../assets/require-one.php';
                     <div class="grid-content__item">
                         <fieldset class="fieldset_content__item">
                             <legend class="legend_title__item">keys_users</legend>
-                            <div style="width: 415px;height: auto;overflow-x: auto;">
+                            <div class="keys_users-table">
                                 <table border="1">
                                     <tr>
                                         <th>db_KeyId</th>
@@ -152,7 +152,7 @@ require_once '../../assets/require-one.php';
                     <div class="grid-content__item">
                         <fieldset class="fieldset_content__item">
                             <legend class="legend_title__item">roles</legend>
-                            <div style="width: 415px;height: auto;overflow-x: auto;">
+                            <div class="roles-table">
                                 <table border="1">
                                     <tr>
                                         <th>db_RoleId</th>
@@ -171,7 +171,7 @@ require_once '../../assets/require-one.php';
                     <div class="grid-content__item">
                         <fieldset class="fieldset_content__item">
                             <legend class="legend_title__item">roles_users</legend>
-                            <div style="width: 415px;height: auto;overflow-x: auto;">
+                            <div class="roles_users-table">
                                 <table border="1">
                                     <tr>
                                         <th>db_RoleId</th>

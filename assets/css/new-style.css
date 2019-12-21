@@ -150,6 +150,21 @@ ul li ul li:hover {
 }
 /* / Top Меню */
 
+.users-table {
+    max-width: 1058px;
+    min-width: 80px;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.keys-table,  .keys_users-table, .roles-table, .roles_users-table{
+    width: 511px;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 /* Стилизация элементов формы */
 input[type='text'],
 input[type='password'],
