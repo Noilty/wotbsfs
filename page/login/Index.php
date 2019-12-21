@@ -8,7 +8,7 @@ require_once '../../assets/require-one.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
     <title>Log In - WOT: BSFS</title>
-    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
     <link rel="stylesheet" href="../../assets/css/new-style.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>

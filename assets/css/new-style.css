@@ -219,10 +219,11 @@ input[type='submit']:hover {
     color: #000;
     margin: 0 auto;
     flex-direction: column;
-    width: 1170px;
-    background-color: #fff;
+    min-width: 800px;
+    max-width: 1170px;
     border-left: solid 5px #F2C811;
     border-right: solid 5px #F2C811;
+    background-color: #fff;
 }
 
 .container {

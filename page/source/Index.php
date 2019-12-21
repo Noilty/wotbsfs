@@ -7,11 +7,21 @@ require_once '../../assets/require-one.php';
     <!-- Выполнены два условия -->
     <?php else: ?>
         <div class="grid-content" style="display: block;">
-            <div class="grid-content__item"><p style="text-align: center;">Активируйте аккаунт!</p></div>
+            <div class="grid-content__item">
+                <fieldset>
+                    <legend>Внимание</legend>
+                    Активируйте аккаунт!
+                </fieldset>
+            </div>
         </div>
     <?php endif; ?>
 <?php else: ?>
 <div class="grid-content" style="display: block;">
-    <div class="grid-content__item"><p style="text-align: center;">Чтобы продолжить, войдите в аккаунт!</p></div>
+    <div class="grid-content__item">
+        <fieldset>
+            <legend>Внимание</legend>
+            Чтобы продолжить, войдите в аккаунт!
+        </fieldset>
+    </div>
 </div> 
 <?php endif; ?>

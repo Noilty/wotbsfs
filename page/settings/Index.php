@@ -8,7 +8,7 @@ require_once '../../assets/require-one.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=10">
     <title>Setting - WOT: BSFS</title>    
-    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../assets/css/normalize.css">
     <link rel="stylesheet" href="../../assets/css/new-style.css">
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 </head>
@@ -129,7 +129,12 @@ require_once '../../assets/require-one.php';
         </div>
         <?php else: ?>
         <div class="grid-content" style="display: block;">
-            <div class="grid-content__item"><p style="text-align: center;">Чтобы продолжить, войдите в аккаунт!</p></div>
+            <div class="grid-content__item">
+                <fieldset class="fieldset_content">
+                    <legend class="legend_title">Внимание</legend>
+                    Чтобы продолжить, войдите в аккаунт!
+                </fieldset>
+            </div>
         </div> 
         <?php endif; ?>
         <!-- / Здесь начинается контент -->
