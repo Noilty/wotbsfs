@@ -16,7 +16,6 @@ require_once '../../assets/require-one.php';
 
 <body style="visibility: hidden" onload="setTimeout ('document.body.style.visibility = \'visible\'', 0)">
     
-    <?php if ( !false ): ?>
     <div class="content-wrapper">
         
         <!-- Шапка -->
@@ -31,164 +30,163 @@ require_once '../../assets/require-one.php';
         <?php if( $_SESSION['UserLogged'] ): ?>
             <?php if( (int)$_SESSION['UserRole'] === 1 ): ?>
                 <?php if( $_SESSION['ActivatedAccount'] ): ?>
-    <div class="container clearfix">
-        <main class="content">
+                <div class="container clearfix">
+                    <main class="content">
+                        <!-- for-example -->
+                        <fieldset class="fieldset_content">
+                            <legend class="legend_title">панель администратора</legend>
+                            <!-- Tabs -->
+                            <div class="tabs">
+                                <ul class="tabs__caption">
+                                    <li class="active">Пользователи</li>
+                                    <li>Ключи</li>
+                                    <li>Роли</li>
+                                    <li>Шаблоны Источника</li>
+                                    <li>Обновление</li>
+                                </ul>
 
-            <!-- for-example -->
-            <fieldset class="fieldset_content">
-                <legend class="legend_title">панель администратора</legend>
-                <!-- Tabs -->
-                <div class="tabs">
-                    <ul class="tabs__caption">
-                        <li class="active">Пользователи</li>
-                        <li>Ключи</li>
-                        <li>Роли</li>
-                        <li>Шаблоны Источника</li>
-                        <li>Обновление</li>
-                    </ul>
+                                <div class="tabs__content  active">
+                                    <p>1</p>
+                                </div>
 
-                    <div class="tabs__content  active">
-                        <p>1</p>
-                    </div>
+                                <div class="tabs__content">
+                                    <p>2</p>
+                                </div>
 
-                    <div class="tabs__content">
-                        <p>2</p>
-                    </div>
+                                <div class="tabs__content">
+                                    <p>3</p>
+                                </div>
 
-                    <div class="tabs__content">
-                        <p>3</p>
-                    </div>
+                                <div class="tabs__content">
+                                    <p>4</p>
+                                </div>
 
-                    <div class="tabs__content">
-                        <p>4</p>
-                    </div>
-
-                    <div class="tabs__content">
-                        <p>5</p>
-                    </div>
+                                <div class="tabs__content">
+                                    <p>5</p>
+                                </div>
+                            </div>
+                            <!-- / Tabs -->
+                        </fieldset>
+                        <fieldset class="fieldset_content">
+                            <legend class="legend_title">База данных</legend>
+                            <div class="grid-content">
+                                <div class="grid-content__item">
+                                    <fieldset class="fieldset_content__item">
+                                        <legend class="legend_title__item" align="center">users</legend>
+                                        <div class="users-table">
+                                            <table border="1">
+                                                <tr>
+                                                    <th>db_UserId</th>
+                                                    <th>db_UserNickName</th>
+                                                    <th>db_UserEmail</th>
+                                                    <th>db_UserEmailConfirmed</th>
+                                                    <th>db_UserName</th>
+                                                    <th>db_GenderUser</th>
+                                                    <th>db_UserSecretWord</th>
+                                                    <th>db_UserDateBirth</th>
+                                                    <th>db_UserDateRegister</th>
+                                                    <th>db_UserDateVisit</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Noilty</td>
+                                                    <td>noilty@mail.ru</td>
+                                                    <td>false</td>
+                                                    <td>NULL</td>
+                                                    <td>NULL</td>
+                                                    <td>NULL</td>
+                                                    <td>NULL</td>
+                                                    <td>2019-12-18 18:51:46</td>
+                                                    <td>2019-12-18 18:51:46</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-content__item">
+                                    <fieldset class="fieldset_content__item">
+                                        <legend class="legend_title__item">keys</legend>
+                                        <div class="keys-table">
+                                            <table border="1">
+                                                <tr>
+                                                    <th>db_KeyId</th>
+                                                    <th>db_KeyName</th>
+                                                    <th>db_KeyDescription</th>
+                                                    <th>db_KeyStatus</th>
+                                                    <th>db_KeyType</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>AAAA-AAAA-AAAA-AAAA</td>
+                                                    <td>Активация аккаунта ТЕСТ</td>
+                                                    <td>1</td>
+                                                    <td>AccountActivation</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="grid-content__item">
+                                    <fieldset class="fieldset_content__item">
+                                        <legend class="legend_title__item">keys_users</legend>
+                                        <div class="keys_users-table">
+                                            <table border="1">
+                                                <tr>
+                                                    <th>db_KeyId</th>
+                                                    <th>db_UserId</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>4</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-content__item">
+                                    <fieldset class="fieldset_content__item">
+                                        <legend class="legend_title__item">roles</legend>
+                                        <div class="roles-table">
+                                            <table border="1">
+                                                <tr>
+                                                    <th>db_RoleId</th>
+                                                    <th>db_RoleName</th>
+                                                    <th>db_RoleDescription</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>admin</td>
+                                                    <td>Главный администратор системы</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="grid-content__item">
+                                    <fieldset class="fieldset_content__item">
+                                        <legend class="legend_title__item">roles_users</legend>
+                                        <div class="roles_users-table">
+                                            <table border="1">
+                                                <tr>
+                                                    <th>db_RoleId</th>
+                                                    <th>db_UserId</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </main>
                 </div>
-                <!-- / Tabs -->
-            </fieldset>
-            <fieldset class="fieldset_content">
-                <legend class="legend_title">База данных</legend>
-                <div class="grid-content">
-                    <div class="grid-content__item">
-                        <fieldset class="fieldset_content__item">
-                            <legend class="legend_title__item" align="center">users</legend>
-                            <div class="users-table">
-                                <table border="1">
-                                    <tr>
-                                        <th>db_UserId</th>
-                                        <th>db_UserNickName</th>
-                                        <th>db_UserEmail</th>
-                                        <th>db_UserEmailConfirmed</th>
-                                        <th>db_UserName</th>
-                                        <th>db_GenderUser</th>
-                                        <th>db_UserSecretWord</th>
-                                        <th>db_UserDateBirth</th>
-                                        <th>db_UserDateRegister</th>
-                                        <th>db_UserDateVisit</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Noilty</td>
-                                        <td>noilty@mail.ru</td>
-                                        <td>false</td>
-                                        <td>NULL</td>
-                                        <td>NULL</td>
-                                        <td>NULL</td>
-                                        <td>NULL</td>
-                                        <td>2019-12-18 18:51:46</td>
-                                        <td>2019-12-18 18:51:46</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="grid-content">
-                    <div class="grid-content__item">
-                        <fieldset class="fieldset_content__item">
-                            <legend class="legend_title__item">keys</legend>
-                            <div class="keys-table">
-                                <table border="1">
-                                    <tr>
-                                        <th>db_KeyId</th>
-                                        <th>db_KeyName</th>
-                                        <th>db_KeyDescription</th>
-                                        <th>db_KeyStatus</th>
-                                        <th>db_KeyType</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>AAAA-AAAA-AAAA-AAAA</td>
-                                        <td>Активация аккаунта ТЕСТ</td>
-                                        <td>1</td>
-                                        <td>AccountActivation</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="grid-content__item">
-                        <fieldset class="fieldset_content__item">
-                            <legend class="legend_title__item">keys_users</legend>
-                            <div class="keys_users-table">
-                                <table border="1">
-                                    <tr>
-                                        <th>db_KeyId</th>
-                                        <th>db_UserId</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>4</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="grid-content">
-                    <div class="grid-content__item">
-                        <fieldset class="fieldset_content__item">
-                            <legend class="legend_title__item">roles</legend>
-                            <div class="roles-table">
-                                <table border="1">
-                                    <tr>
-                                        <th>db_RoleId</th>
-                                        <th>db_RoleName</th>
-                                        <th>db_RoleDescription</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>admin</td>
-                                        <td>Главный администратор системы</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="grid-content__item">
-                        <fieldset class="fieldset_content__item">
-                            <legend class="legend_title__item">roles_users</legend>
-                            <div class="roles_users-table">
-                                <table border="1">
-                                    <tr>
-                                        <th>db_RoleId</th>
-                                        <th>db_UserId</th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-            </fieldset>
-        </main>
-    </div>
                 <?php else: ?>
                 <div class="grid-content" style="display: block;">
                     <div class="grid-content__item">
@@ -226,11 +224,6 @@ require_once '../../assets/require-one.php';
         <!-- / Подвал -->
 
     </div>
-    <?php else: ?>
-    <div class="content-wrapper" style="color: #000; text-align: center;">
-        Bitch
-    </div>
-    <?php endif; ?>
 
     <!-- jQuery mini -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

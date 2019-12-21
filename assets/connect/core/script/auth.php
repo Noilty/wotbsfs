@@ -67,7 +67,7 @@ try {
                                 'UserId' => $sSearchUser[0]['db_UserId']
                             ],
                             2 => [
-                                'RoleId' => 1,
+                                'RoleId' => 2,
                                 'UserId' => $sSearchUser[0]['db_UserId']
                             ]
                         ]
