@@ -44,8 +44,13 @@ try {
             } else {
                 if( !password_verify($mUser['UserPassword'], $sSearchUser[0]['db_UserPassword']) ) {
                     echo $sMessage[] = 'Неверный пароль!';
+                    
+                    echo '<div><a href="/page/main/">На главную</a></div>';
                 } else {
                     echo $sMessage[] = 'Пароль принят!';
+                    
+                    echo '<div><a href="/page/main/">На главную</a></div>';
+                    //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                     
                     $sSql = [
                         'keys_users' => 'SELECT db_KeyId, db_UserId FROM keys_users WHERE db_UserId = :UserId',
@@ -94,13 +99,18 @@ try {
                     $stmt1Roles->execute($mParams['roles_users'][1]);
                     $sSearchRoles = $stmt1Roles->fetchAll(PDO::FETCH_ASSOC);
                     
-                    //Пишем в сессию роль пользователя
-                    if( $sSearchRoles ) {
-                        $_SESSION['UserRole'] = $sSearchRoles[0]['db_RoleId'];
-                    } else {
-                        //Пишем роль в roles_users
+                    //Если у пользователя нет роли
+                    if( !$sSearchRoles ) {
+                        //Пишем роль "Пользователь" в roles_users
                         $stmt1Roles = $pdo->prepare($sSql['roles_users'][2]);
                         $stmt1Roles->execute($mParams['roles_users'][2]);
+                    } else {
+                        //Если у пользователя > одной роли он Администратор или Спонсор (Доработать)
+                        if( count($sSearchRoles) > 1 && count($sSearchRoles) < 3 ) {
+                            $_SESSION['UserRole'] = $sSearchRoles[1]['db_RoleId'];
+                        } else {
+                            $_SESSION['UserRole'] = $sSearchRoles[0]['db_RoleId'];
+                        }
                     }
                     
                     //Пишем в сессию никнейм пользователя
@@ -110,9 +120,6 @@ try {
                     foreach ($sSearchUser[0] as $key => $value) {
                         $_SESSION[$key] = $sSearchUser[0][$key];
                     }
-                    
-                    echo '<div><a href="/page/main/">На главную</a></div>';
-                    //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                 }
             }
         }
