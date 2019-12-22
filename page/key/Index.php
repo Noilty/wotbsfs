@@ -89,7 +89,7 @@ require_once '../../assets/require-one.php';
     
     <script>
         $( document ).ready(function() {
-            $("#activation-code").mask("aa99-aaaa-aaaa-aaaa");
+            $("#activation-code").mask("aaaa-aaaa-aaaa-aaaa");
             $('#activation-code').css('text-transform','uppercase');
         });// document ready
     </script>    

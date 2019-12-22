@@ -1,5 +1,6 @@
 <?php
 require_once '../../assets/require-one.php';
+require_once '../../assets/connect/core/script/admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -87,18 +88,20 @@ require_once '../../assets/require-one.php';
                                                     <th>db_UserDateRegister</th>
                                                     <th>db_UserDateVisit</th>
                                                 </tr>
+                                                <?php foreach ($mAllUsers as $keyUser => $valueUser): ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Noilty</td>
-                                                    <td>noilty@mail.ru</td>
-                                                    <td>false</td>
-                                                    <td>NULL</td>
-                                                    <td>NULL</td>
-                                                    <td>NULL</td>
-                                                    <td>NULL</td>
-                                                    <td>2019-12-18 18:51:46</td>
-                                                    <td>2019-12-18 18:51:46</td>
+                                                    <td><?= $valueUser['db_UserId'] ?></td>
+                                                    <td><?= $valueUser['db_UserNickName'] ?></td>
+                                                    <td><?= $valueUser['db_UserEmail'] ?></td>
+                                                    <td><?= $valueUser['db_UserEmailConfirmed'] ?></td>
+                                                    <td><?= ( $valueUser['db_UserName'] ) ? $valueUser['db_UserName'] : 'Пусто' ?></td>
+                                                    <td><?= ( $valueUser['db_GenderUser'] ) ? $valueUser['db_GenderUser'] : 'Пусто' ?></td>
+                                                    <td><?= ( $valueUser['db_UserSecretWord'] ) ? $valueUser['db_UserSecretWord'] : 'Пусто' ?></td>
+                                                    <td><?= ( $valueUser['db_UserDateBirth'] ) ? $valueUser['db_UserDateBirth'] : 'Пусто' ?></td>
+                                                    <td><?= $valueUser['db_UserDateRegister'] ?></td>
+                                                    <td><?= ( $valueUser['db_UserDateVisit'] ) ? $valueUser['db_UserDateVisit'] : 'Пусто' ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </table>
                                         </div>
                                     </fieldset>
@@ -114,16 +117,18 @@ require_once '../../assets/require-one.php';
                                                     <th>db_KeyId</th>
                                                     <th>db_KeyName</th>
                                                     <th>db_KeyDescription</th>
-                                                    <th>db_KeyStatus</th>
                                                     <th>db_KeyType</th>
+                                                    <th>db_KeyStatus</th>
                                                 </tr>
+                                                <?php foreach ($mAllKeys as $keyKey => $valueKey): ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>AAAA-AAAA-AAAA-AAAA</td>
-                                                    <td>Активация аккаунта ТЕСТ</td>
-                                                    <td>1</td>
-                                                    <td>AccountActivation</td>
+                                                    <td><?= $valueKey['db_KeyId'] ?></td>
+                                                    <td><?= $valueKey['db_KeyName'] ?></td>
+                                                    <td><?= $valueKey['db_KeyDescription'] ?></td>
+                                                    <td><?= $valueKey['db_KeyType'] ?></td>
+                                                    <td><?= ( $valueKey['db_KeyStatus'] == 1 ) ? 'Активирован' : 'Свободен' ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </table>
                                         </div>
                                     </fieldset>
@@ -136,11 +141,15 @@ require_once '../../assets/require-one.php';
                                                 <tr>
                                                     <th>db_KeyId</th>
                                                     <th>db_UserId</th>
+                                                    <th>Дата активации</th>
                                                 </tr>
+                                                <?php foreach ($mAllKeysActivated as $keyKeyActivated => $valueKeyActivated): ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>4</td>
+                                                    <td><?= $valueKeyActivated['db_KeyId'] ?></td>
+                                                    <td><?= $valueKeyActivated['db_UserId'] ?></td>
+                                                    <td><?= $valueKeyActivated['db_KeyActivationDate'] ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </table>
                                         </div>
                                     </fieldset>
@@ -157,11 +166,13 @@ require_once '../../assets/require-one.php';
                                                     <th>db_RoleName</th>
                                                     <th>db_RoleDescription</th>
                                                 </tr>
+                                                <?php foreach ($mAllRoles as $keyRole => $valueRole): ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>admin</td>
-                                                    <td>Главный администратор системы</td>
+                                                    <td><?= $valueRole['db_RoleId'] ?></td>
+                                                    <td><?= $valueRole['db_RoleName'] ?></td>
+                                                    <td><?= $valueRole['db_RoleDescription'] ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </table>
                                         </div>
                                     </fieldset>
@@ -175,10 +186,12 @@ require_once '../../assets/require-one.php';
                                                     <th>db_RoleId</th>
                                                     <th>db_UserId</th>
                                                 </tr>
+                                                <?php foreach ($mAllRolesUsers as $keyRoleUser => $valueRoleUser): ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>1</td>
+                                                    <td><?= $valueRoleUser['db_RoleId'] ?></td>
+                                                    <td><?= $valueRoleUser['db_UserId'] ?></td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </table>
                                         </div>
                                     </fieldset>

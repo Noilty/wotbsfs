@@ -52,7 +52,7 @@ try {
                     echo '<div><a href="/page/main/">На главную</a></div>';
                     //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
                     
-                    $sSql = [
+                    $mSql = [
                         'keys_users' => 'SELECT db_KeyId, db_UserId FROM keys_users WHERE db_UserId = :UserId',
                         'users' => 'UPDATE users SET db_UserDateVisit = NOW() WHERE db_UserEmail = :UserEmail',
                         'roles_users' => [
@@ -79,7 +79,7 @@ try {
                     ];
                     
                     //Тянем ключ пользователя
-                    $stmtKeysUsers = $pdo->prepare($sSql['keys_users']);
+                    $stmtKeysUsers = $pdo->prepare($mSql['keys_users']);
                     $stmtKeysUsers->execute($mParams['keys_users']);
                     $sSearchKeyUser = $stmtKeysUsers->fetchAll(PDO::FETCH_ASSOC);
                     
@@ -91,18 +91,18 @@ try {
                     }
                     
                     //При успешной аутентификации обновляем дату визита
-                    $stmt1Users = $pdo->prepare($sSql['users']);
+                    $stmt1Users = $pdo->prepare($mSql['users']);
                     $stmt1Users->execute($mParams['users']);
                     
                     //Тянем роль пользователя
-                    $stmt1Roles = $pdo->prepare($sSql['roles_users'][1]);
+                    $stmt1Roles = $pdo->prepare($mSql['roles_users'][1]);
                     $stmt1Roles->execute($mParams['roles_users'][1]);
                     $sSearchRoles = $stmt1Roles->fetchAll(PDO::FETCH_ASSOC);
                     
                     //Если у пользователя нет роли
                     if( !$sSearchRoles ) {
                         //Пишем роль "Пользователь" в roles_users
-                        $stmt1Roles = $pdo->prepare($sSql['roles_users'][2]);
+                        $stmt1Roles = $pdo->prepare($mSql['roles_users'][2]);
                         $stmt1Roles->execute($mParams['roles_users'][2]);
                     } else {
                         //Если у пользователя > одной роли он Администратор или Спонсор (Доработать)

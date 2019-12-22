@@ -35,11 +35,13 @@ try {
         }
         
         if( !$bSearchKey ) {
-            echo $sMessage[] = 'Ключ не существует! Убедитесь что Вы ввели его правильно. ';
+            echo $sMessage[] = 'Проверьте правильность ввода ключа.';
         } else {
             //Если статус ключа false то его можно использовать
             if( $bKeyActivated ) {
-                echo $sMessage[] = 'Ключ недействителен! Попробуйте другой.';
+                echo $sMessage[] = 'Этот ключ уже активирован.';
+                
+                echo '<div><a href="/page/main/">На главную</a></div>';
             } else {
                 //Если аккаунт уже был активирован запрешаем использование ключа
                 if( $_SESSION['ActivatedAccount'] ) {
@@ -47,8 +49,8 @@ try {
                     
                     echo '<div><a href="/page/main/">На главную</a></div>';
                 } else {
-                    //У ключа статус false т.е он не занят
-                    $sSql = 'INSERT INTO keys_users(db_KeyId, db_UserId) VALUES(:KeyId, :UserId)';
+                    //У ключа статус false т.е он не занят следовательно пишем его в keys_users
+                    $sSql = 'INSERT INTO keys_users(db_KeyId, db_UserId, db_KeyActivationDate) VALUES(:KeyId, :UserId, NOW())';
                     $mParams = [
                         'KeyId' => $KeyId,
                         'UserId' => $_SESSION['db_UserId']
@@ -59,6 +61,8 @@ try {
                     //Если запрос вернул true активируем ключ
                     if( $stmt ) {
                         echo $sMessage[] = 'Ключ активирован!';
+                        
+                        echo '<div><a href="/page/main/">На главную</a></div>';
 
                         $sSql = 'UPDATE `keys` SET db_KeyStatus = :KeyStatus WHERE db_KeyId = :KeyId';
                         $mParams = [

@@ -61,8 +61,8 @@ require_once '../../assets/require-one.php';
                                     <fieldset>
                                         <legend>Пол</legend>
                                         <select name="select_UserGender">
-                                            <option value="male">Мужчина</option>
-                                            <option value="female">Женщина</option>
+                                            <option value="1">Мужчина</option>
+                                            <option value="0">Женщина</option>
                                         </select>
                                     </fieldset>
                                     <fieldset>

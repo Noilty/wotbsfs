@@ -153,14 +153,14 @@ ul li ul li:hover {
 .users-table {
     max-width: 1058px;
     min-width: 80px;
-    height: auto;
+    height: 250px;
     overflow-x: auto;
     white-space: nowrap;
 }
 
 .keys-table,  .keys_users-table, .roles-table, .roles_users-table{
     width: 511px;
-    height: auto;
+    height: 250px;
     overflow-x: auto;
     white-space: nowrap;
 }
