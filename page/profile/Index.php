@@ -38,16 +38,16 @@ require_once '../../assets/require-one.php';
                                 <legend class="legend_title__item">View</legend>
                                 Идентификатор: <strong>#<?= $_SESSION['db_UserId'] ?></strong><br />
                                 Никнейм: <strong><?= $_SESSION['db_UserNickName'] ?></strong><br />
-                                Роль: <strong><?= $UserRole = ( $_SESSION['UserRole'] ) ? $_SESSION['UserRole'] : 'Обновление...' ?></strong><br />
-                                Электронная почта: <strong><?= $_SESSION['db_UserEmail'] ?></strong> <?= $UserEmailConfirmed = ( $_SESSION['db_UserEmailConfirmed'] === 'true' ) ? '<img src="/assets/img/email-ok.png" title="Подтвержденный аккаунт" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Неподтвержденный аккаунт" style="width: 16px;" />' ?><br />
+                                Роль: <strong><?= ( $_SESSION['UserRole'] ) ? RoleCheck($_SESSION['UserRole']) : 'Обновление...' ?></strong><br />
+                                Электронная почта: <strong><?= $_SESSION['db_UserEmail'] ?></strong><?= ( (int)$_SESSION['db_UserEmailConfirmed'] === 1 ) ? '<img src="/assets/img/email-ok.png" title="Электронная почта подтверждена" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Электронная почта не подтверждена" style="width: 16px;" />' ?><br />
                                 <hr />
-                                Реальное имя: <strong><?= $UserName = ( $_SESSION['db_UserName'] ) ? $_SESSION['db_UserName'] : 'Пусто' ?></strong><br />
-                                Пол: <strong><?= $GenderUser = ( $_SESSION['db_GenderUser'] ) ? $_SESSION['db_GenderUser'] : 'Пусто' ?></strong><br />
-                                Секретное слово: <strong><?= $UserSecretWord = ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong><br />
-                                Дата рождения: <strong><?= $UserDateBirth = ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong>
+                                Реальное имя: <strong><?= ( $_SESSION['db_UserName'] ) ? $_SESSION['db_UserName'] : 'Пусто' ?></strong><br />
+                                Пол: <strong><?= ( $_SESSION['db_UserGender'] ) ? GenderCheck($_SESSION['db_UserGender']) : 'Пусто' ?></strong><br />
+                                Секретное слово: <strong><?= ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong><br />
+                                Дата рождения: <strong><?= ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong>
                                 <hr />
                                 Дата регистрации: <strong><?= $_SESSION['db_UserDateRegister'] ?></strong><br />
-                                Дата последнего посещения: <strong><?= $UserDateVisit = ( $_SESSION['db_UserDateVisit'] ) ? $_SESSION['db_UserDateVisit'] : 'Обновление...' ?></strong><br />
+                                Дата последнего посещения: <strong><?= ( $_SESSION['db_UserDateVisit'] ) ? $_SESSION['db_UserDateVisit'] : 'Обновление...' ?></strong><br />
                             </fieldset>
                         </div>
                         <div class="grid-content__item">

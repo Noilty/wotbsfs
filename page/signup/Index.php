@@ -26,7 +26,8 @@ require_once '../../assets/require-one.php';
         <!-- / Меню навигации -->
 
         <!-- Здесь начинается контент -->
-        <div class="container clearfix">
+        <?php if( !$_SESSION['UserLogged'] ): ?>
+       <div class="container clearfix">
             <main class="content">
                 <!-- for-example -->
                 <fieldset class="fieldset_content">
@@ -73,6 +74,17 @@ require_once '../../assets/require-one.php';
                 </fieldset>
             </main>
         </div>
+        <?php else: ?>
+        <div class="grid-content" style="display: block;">
+            <div class="grid-content__item">
+                <fieldset class="fieldset_content">
+                    <legend class="legend_title">Внимание</legend>
+                    Что-то пошло не так! (/signup/)
+                </fieldset>
+            </div>
+        </div>
+        <?php endif; ?>
+
         <!-- / Здесь начинается контент -->
         
         <!-- Подвал -->

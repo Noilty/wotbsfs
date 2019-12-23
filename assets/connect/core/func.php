@@ -15,6 +15,52 @@ function EmptyCheck($mParam) {
 }
 
 /**
+ * Преобразование роли из int в string
+ * @param type $iRole
+ * @return string
+ */
+function RoleCheck($iRole) {
+    switch ($iRole) {
+        case 1:
+            $role = 'Администратор';
+            break;
+        case 2:
+            $role = 'Пользователь';
+            break;
+        case 3:
+            $role = 'Спонсор';
+            break;
+        default:
+            $role = 'ХЗ';
+            break;
+    }
+    return $role;
+}
+
+/**
+ * Преобразование пола из int в string
+ * @param type $iGender
+ * @return string
+ */
+function GenderCheck($iGender) {
+    switch ($iGender) {
+        case 1:
+            $gender = 'Мужчина';
+            break;
+        case 0:
+            $gender = 'Женщина';
+            break;
+        case '':
+            $gender = 'Пусто';
+            break;
+        default:
+            $gender = 'ХЗ';
+            break;
+    }
+    return $gender;
+}
+
+/**
  * Мой Дамр
  * @param type $exp
  */

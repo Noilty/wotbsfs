@@ -77,25 +77,25 @@ require_once '../../assets/connect/core/script/admin.php';
                                         <div class="users-table">
                                             <table border="1">
                                                 <tr>
-                                                    <th>db_UserId</th>
-                                                    <th>db_UserNickName</th>
-                                                    <th>db_UserEmail</th>
-                                                    <th>db_UserEmailConfirmed</th>
-                                                    <th>db_UserName</th>
-                                                    <th>db_GenderUser</th>
-                                                    <th>db_UserSecretWord</th>
-                                                    <th>db_UserDateBirth</th>
-                                                    <th>db_UserDateRegister</th>
-                                                    <th>db_UserDateVisit</th>
+                                                    <th>ИД</th>
+                                                    <th>Никнейм</th>
+                                                    <th>Почта</th>
+                                                    <th>Статус почты</th>
+                                                    <th>Реальное имя</th>
+                                                    <th>Пол</th>
+                                                    <th>Секретное слово</th>
+                                                    <th>Дата рождения</th>
+                                                    <th>Дата регистрации</th>
+                                                    <th>Дата последнего посещения</th>
                                                 </tr>
                                                 <?php foreach ($mAllUsers as $keyUser => $valueUser): ?>
                                                 <tr>
                                                     <td><?= $valueUser['db_UserId'] ?></td>
                                                     <td><?= $valueUser['db_UserNickName'] ?></td>
                                                     <td><?= $valueUser['db_UserEmail'] ?></td>
-                                                    <td><?= $valueUser['db_UserEmailConfirmed'] ?></td>
+                                                    <td><?= ( (int)$valueUser['db_UserEmailConfirmed'] ) ? '<img src="/assets/img/email-ok.png" title="Электронная почта подтверждена" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Электронная почта не подтверждена" style="width: 16px;" />' ?></td>
                                                     <td><?= ( $valueUser['db_UserName'] ) ? $valueUser['db_UserName'] : 'Пусто' ?></td>
-                                                    <td><?= ( $valueUser['db_GenderUser'] ) ? $valueUser['db_GenderUser'] : 'Пусто' ?></td>
+                                                    <td><?= ( (int)$valueUser['db_UserGender'] ) ? GenderCheck($valueUser['db_UserGender']) : 'Пусто' ?></td>
                                                     <td><?= ( $valueUser['db_UserSecretWord'] ) ? $valueUser['db_UserSecretWord'] : 'Пусто' ?></td>
                                                     <td><?= ( $valueUser['db_UserDateBirth'] ) ? $valueUser['db_UserDateBirth'] : 'Пусто' ?></td>
                                                     <td><?= $valueUser['db_UserDateRegister'] ?></td>
@@ -114,11 +114,11 @@ require_once '../../assets/connect/core/script/admin.php';
                                         <div class="keys-table">
                                             <table border="1">
                                                 <tr>
-                                                    <th>db_KeyId</th>
-                                                    <th>db_KeyName</th>
-                                                    <th>db_KeyDescription</th>
-                                                    <th>db_KeyType</th>
-                                                    <th>db_KeyStatus</th>
+                                                    <th>ИД</th>
+                                                    <th>Ключ</th>
+                                                    <th>Описание</th>
+                                                    <th>Тип</th>
+                                                    <th>Статус</th>
                                                 </tr>
                                                 <?php foreach ($mAllKeys as $keyKey => $valueKey): ?>
                                                 <tr>
@@ -139,8 +139,8 @@ require_once '../../assets/connect/core/script/admin.php';
                                         <div class="keys_users-table">
                                             <table border="1">
                                                 <tr>
-                                                    <th>db_KeyId</th>
-                                                    <th>db_UserId</th>
+                                                    <th>ИД</th>
+                                                    <th>ИД пользователя</th>
                                                     <th>Дата активации</th>
                                                 </tr>
                                                 <?php foreach ($mAllKeysActivated as $keyKeyActivated => $valueKeyActivated): ?>
@@ -162,9 +162,9 @@ require_once '../../assets/connect/core/script/admin.php';
                                         <div class="roles-table">
                                             <table border="1">
                                                 <tr>
-                                                    <th>db_RoleId</th>
-                                                    <th>db_RoleName</th>
-                                                    <th>db_RoleDescription</th>
+                                                    <th>ИД</th>
+                                                    <th>Роль</th>
+                                                    <th>Описание</th>
                                                 </tr>
                                                 <?php foreach ($mAllRoles as $keyRole => $valueRole): ?>
                                                 <tr>
@@ -183,8 +183,8 @@ require_once '../../assets/connect/core/script/admin.php';
                                         <div class="roles_users-table">
                                             <table border="1">
                                                 <tr>
-                                                    <th>db_RoleId</th>
-                                                    <th>db_UserId</th>
+                                                    <th>ИД роли</th>
+                                                    <th>ИД пользователя</th>
                                                 </tr>
                                                 <?php foreach ($mAllRolesUsers as $keyRoleUser => $valueRoleUser): ?>
                                                 <tr>
