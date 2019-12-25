@@ -68,10 +68,10 @@ h2 {
 .tabs__caption li {
   padding: 9px 15px;
   margin: 1px 0 0 1px;
-  background: #333;
+  background: #4A4A4A;
   color: #FFF;
   position: relative;
-  border: solid #333;
+  border: solid #4A4A4A;
   border-width: 2px 2px 0;
   /*border-radius: 5px 5px 0 0;*/
   text-align: center;
@@ -80,8 +80,8 @@ h2 {
   cursor: pointer;
 }
 .tabs__caption li:not(.active):hover {
-  background: #4A4A4A;
-  border-color: #4A4A4A;
+  background: #333;
+  border-color: #333;
 }
 .tabs__caption .active {
   background: #FFF;

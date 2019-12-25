@@ -14,17 +14,13 @@ $mUser = [
 try {
     if( $mUser['UserNotBot'] != $_SESSION['Captcha'] ) {
         echo $sMessage[] = 'Проверка на бота провалилась!';
-        
-        echo '<div><a href="/page/main/">На главную</a></div>';
-        //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
+        echo '<div><a href="/page/auth/">Попробовать снова</a></div>';
     } else {
         if( EmptyCheck($mUser) ) {
             foreach (EmptyCheck($mUser) as $value) {
                 echo $value.'<br />';
             }
-            
-            echo '<div><a href="/page/main/">На главную</a></div>';
-            //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
+            echo '<div><a href="/page/auth/">Попробовать снова</a></div>';
         } else {
             $sSql = 'SELECT * FROM users WHERE db_UserEmail = :UserEmail';
             $mParams = [
@@ -38,19 +34,14 @@ try {
 
             if( !$sSearchUser ) {
                 echo $sMessage[] = 'Аккаунт не найден!';
-                
-                echo '<div><a href="/page/main/">На главную</a></div>';
-                //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
+                echo '<div><a href="/page/auth/">Попробовать снова</a></div>';
             } else {
                 if( !password_verify($mUser['UserPassword'], $sSearchUser[0]['db_UserPassword']) ) {
                     echo $sMessage[] = 'Неверный пароль!';
-                    
-                    echo '<div><a href="/page/main/">На главную</a></div>';
+                    echo '<div><a href="/page/auth/">Попробовать снова</a></div>';
                 } else {
                     echo $sMessage[] = 'Пароль принят!';
-                    
-                    echo '<div><a href="/page/main/">На главную</a></div>';
-                    //echo '<script>setTimeout(\'location="/page/main/"\', 5000)</script>';
+                    echo '<div><a href="/page/main/">Значит можно работать</a></div>';
                     
                     $mSql = [
                         'keys_users' => 'SELECT db_KeyId, db_UserId FROM keys_users WHERE db_UserId = :UserId',
