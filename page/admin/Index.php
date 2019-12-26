@@ -93,7 +93,7 @@ require_once '../../assets/connect/core/script/admin.php';
                                                     <td><?= $valueUser['db_UserId'] ?></td>
                                                     <td><?= $valueUser['db_UserNickName'] ?></td>
                                                     <td><?= $valueUser['db_UserEmail'] ?></td>
-                                                    <td><?= ( (int)$valueUser['db_UserEmailConfirmed'] ) ? '<img src="/assets/img/email-ok.png" title="Электронная почта подтверждена" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Электронная почта не подтверждена" style="width: 16px;" />' ?></td>
+                                                    <td><?= ( (int)$valueUser['db_UserEmailConfirmed'] ) ? '<img src="/assets/img/email-ok.png" title="Электронная почта подтверждена" />' : '<img src="/assets/img/email-no.png" title="Электронная почта не подтверждена" />' ?></td>
                                                     <td><?= ( $valueUser['db_UserName'] ) ? $valueUser['db_UserName'] : 'Пусто' ?></td>
                                                     <td><?= ( (int)$valueUser['db_UserGender'] ) ? GenderCheck($valueUser['db_UserGender']) : 'Пусто' ?></td>
                                                     <td><?= ( $valueUser['db_UserSecretWord'] ) ? $valueUser['db_UserSecretWord'] : 'Пусто' ?></td>

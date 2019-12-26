@@ -36,18 +36,44 @@ require_once '../../assets/require-one.php';
                         <div class="grid-content__item">
                             <fieldset class="fieldset_content__item">
                                 <legend class="legend_title__item">View</legend>
-                                Идентификатор: <strong>#<?= $_SESSION['db_UserId'] ?></strong><br />
-                                Никнейм: <strong><?= $_SESSION['db_UserNickName'] ?></strong><br />
-                                Роль: <strong><?= ( $_SESSION['UserRole'] ) ? RoleCheck($_SESSION['UserRole']) : 'Обновление...' ?></strong><br />
-                                Электронная почта: <strong><?= $_SESSION['db_UserEmail'] ?></strong><?= ( (int)$_SESSION['db_UserEmailConfirmed'] === 1 ) ? '<img src="/assets/img/email-ok.png" title="Электронная почта подтверждена" style="width: 16px;" />' : '<img src="/assets/img/email-no.png" title="Электронная почта не подтверждена" style="width: 16px;" />' ?><br />
+                                <table style="border: 1px; text-align: left;">
+                                    <tr>
+                                        <td>Идентификатор: <strong>#<?= $_SESSION['db_UserId'] ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Никнейм: <strong><?= $_SESSION['db_UserNickName'] ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Роль: <strong><?= ( $_SESSION['UserRole'] ) ? RoleCheck($_SESSION['UserRole']) : 'Обновление...' ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Электронная почта: <strong><?= $_SESSION['db_UserEmail'] ?></strong><?= ( (int)$_SESSION['db_UserEmailConfirmed'] === 1 ) ? '<img src="/assets/img/email-ok.png" title="Электронная почта подтверждена" />' : '<img src="/assets/img/email-no.png" title="Электронная почта не подтверждена" />' ?></td>
+                                    </tr>
+                                </table>
                                 <hr />
-                                Реальное имя: <strong><?= ( $_SESSION['db_UserName'] ) ? $_SESSION['db_UserName'] : 'Пусто' ?></strong><br />
-                                Пол: <strong><?= ( $_SESSION['db_UserGender'] ) ? GenderCheck($_SESSION['db_UserGender']) : 'Пусто' ?></strong><br />
-                                Секретное слово: <strong><?= ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong><br />
-                                Дата рождения: <strong><?= ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong>
+                                <table style="border: 1px; text-align: left;">
+                                    <tr>
+                                        <td>Реальное имя: <strong><?= ( $_SESSION['db_UserName'] ) ? $_SESSION['db_UserName'] : 'Пусто' ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Пол: <strong><?= ( $_SESSION['db_UserGender'] ) ? GenderCheck($_SESSION['db_UserGender']) : 'Пусто' ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Секретное слово: <strong><?= ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Дата рождения: <strong><?= ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong></td>
+                                    </tr>
+                                </table>
                                 <hr />
-                                Дата регистрации: <strong><?= $_SESSION['db_UserDateRegister'] ?></strong><br />
-                                Дата последнего посещения: <strong><?= ( $_SESSION['db_UserDateVisit'] ) ? $_SESSION['db_UserDateVisit'] : 'Обновление...' ?></strong><br />
+                                <table style="border: 1px; text-align: left;">
+                                    <tr>
+                                        <td>Дата регистрации: <strong><?= $_SESSION['db_UserDateRegister'] ?></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Дата последнего посещения: <strong><?= ( $_SESSION['db_UserDateVisit'] ) ? $_SESSION['db_UserDateVisit'] : 'Обновление...' ?></strong></td>
+                                    </tr>
+                                </table>
                             </fieldset>
                         </div>
                         <div class="grid-content__item">

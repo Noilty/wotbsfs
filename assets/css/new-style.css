@@ -60,6 +60,10 @@ table {
     th, td, tr {
         padding: 5px;
     }
+    td img {
+        vertical-align: middle;
+        width: 20px;
+    }
 
 fieldset {
     border: 1px solid black;
