@@ -59,7 +59,7 @@ require_once '../../assets/require-one.php';
                                         <td>Пол: <strong><?= ( $_SESSION['db_UserGender'] ) ? GenderCheck($_SESSION['db_UserGender']) : 'Пусто' ?></strong></td>
                                     </tr>
                                     <tr>
-                                        <td>Секретное слово: <strong><?= ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong></td>
+                                        <td>Секретное слово: <strong id="txt"><?= ( $_SESSION['db_UserSecretWord'] ) ? $_SESSION['db_UserSecretWord'] : 'Пусто' ?></strong> | <span id="btn" style="cursor: pointer;">показать/скрыть</span></td>
                                     </tr>
                                     <tr>
                                         <td>Дата рождения: <strong><?= ( $_SESSION['db_UserDateBirth'] ) ? $_SESSION['db_UserDateBirth'] : 'Пусто' ?></strong></td>
@@ -180,6 +180,22 @@ require_once '../../assets/require-one.php';
     <!-- MASK -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
     <!-- / jQuery mini -->  
+    
+    <script>
+    $.fn.textToggle = function(cls, str) {
+        return this.each(function(i) {
+            $(this).click(function() {
+                var c = 0, el = $(cls).eq(i), arr = [str,el.text()];
+                return function() {
+                    el.text(arr[c++ % arr.length]);
+                };
+            }());
+        });
+    };
+    $(function(){
+        $('#btn').textToggle("#txt","*****").click();
+    });
+    </script>
     
 </body>
     
