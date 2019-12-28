@@ -78,12 +78,22 @@ require_once '../../assets/require-one.php';
                         </div>
                         <div class="grid-content__item">
                             <form id="form-profile" action="../../assets/connect/core/script/profile.php" method="POST">
+                                <?php if( !$_SESSION['db_UserName'] || !$_SESSION['db_UserGender'] || !$_SESSION['db_UserDateBirth'] || !$_SESSION['db_UserDateBirth'] ): ?>
                                 <fieldset class="fieldset_content__item">
-                                    <legend class="legend_title__item" align="center">Setting</legend>
+                                    <legend class="legend_title__item" align="center">Setting  <label for="input_UserName"><abbr title="Форму можно отправить только один раз" aria-label="required">*</abbr></label></legend>
+                                    <?php if( !$_SESSION['db_UserName'] ): ?>
                                     <fieldset>
                                         <legend>Реальное имя</legend>
                                         <input type="text" name="input_UserName" />
                                     </fieldset>
+                                    <?php else: ?>
+                                    <fieldset>
+                                        <legend>Реальное имя</legend>
+                                        BLOCKED
+                                    </fieldset>
+                                    <?php endif; ?>
+                                    
+                                    <?php if( !$_SESSION['db_UserGender'] ): ?>
                                     <fieldset>
                                         <legend>Пол</legend>
                                         <select name="select_UserGender">
@@ -91,26 +101,40 @@ require_once '../../assets/require-one.php';
                                             <option value="0">Женщина</option>
                                         </select>
                                     </fieldset>
+                                    <?php else: ?>
+                                    <fieldset>
+                                        <legend>Пол</legend>
+                                        BLOCKED
+                                    </fieldset>
+                                    <?php endif; ?>
+                                    
                                     <?php if( !$_SESSION['db_UserDateBirth'] ): ?>
                                     <fieldset>
                                         <legend>Секретное слово</legend>
                                         <input type="text" name="input_UserSecretWord" />
                                         <fieldset>
-                                            <legend>Пароль</legend>
+                                            <legend>Действующий пароль</legend>
                                             <input type="password" name="input_UserPassword" />
                                         </fieldset>
                                     </fieldset>
                                     <?php else: ?>
                                     <fieldset>
                                         <legend>Секретное слово</legend>
-                                        ...задано и его нельзя изменить!
+                                        BLOCKED
                                     </fieldset>
                                     <?php endif; ?>
-
+                                    
+                                    <?php if( !$_SESSION['db_UserDateBirth'] ): ?>
                                     <fieldset>
                                         <legend>Дата рождения</legend>
                                         <input type="date" name="input_UserDateBirth" />
                                     </fieldset>
+                                    <?php else: ?>
+                                    <fieldset>
+                                        <legend>Дата рождения</legend>
+                                        BLOCKED
+                                    </fieldset>
+                                    <?php endif; ?>
                                     <hr />
                                     <fieldset>
                                         <legend>Проверка на бота</legend>
@@ -119,6 +143,12 @@ require_once '../../assets/require-one.php';
                                     </fieldset>
                                     <input type="submit" name="input_SettingPersonal" />
                                 </fieldset>
+                                <?php else: ?>
+                                <fieldset class="fieldset_content__item">
+                                    <legend class="legend_title__item">Внимание</legend>
+                                    Все данные внесены и изменить их можно только через ЦП
+                                </fieldset>
+                                <?php endif; ?>
                             </form>
                         </div>
                     </div>

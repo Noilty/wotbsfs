@@ -39,7 +39,39 @@ try {
                 echo $sMessage[] = 'Неверный пароль!';
                 echo '<div><a href="/page/profile/">Попробовать снова</a></div>';
             } else {
-                echo 'OK';
+                $sSql = 'UPDATE users SET db_UserName = :UserName, db_UserGender = :UserGender, db_UserSecretWord = :UserSecretWord, db_UserDateBirth = :UserDateBirth WHERE db_UserEmail = :UserEmail';
+                $mParams = [
+                    'UserName' => $mProfile['UserName'],
+                    'UserGender' => $mProfile['UserGender'],
+                    'UserSecretWord' => $mProfile['UserSecretWord'],
+                    'UserDateBirth' => $mProfile['UserDateBirth'],
+                    'UserEmail' => $_SESSION['db_UserEmail']
+                ];
+                
+                $stmt = $pdo->prepare($sSql);
+                $stmt->execute($mParams);
+                
+                if( !$stmt ) {
+                    echo 'No';
+                } else {
+                    $sSql = 'SELECT * FROM users WHERE db_UserEmail = :UserEmail';
+                    $mParams = [
+                        'UserEmail' => $_SESSION['db_UserEmail']
+                    ];
+                    
+                    //Тянем всю информацию о пользователе
+                    $stmt = $pdo->prepare($sSql);
+                    $stmt->execute($mParams);
+                    $sAllInfoUser = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    //Обновляем информацию в сессии о пользователе
+                    foreach ($sAllInfoUser[0] as $key => $value) {
+                        $_SESSION[$key] = $sAllInfoUser[0][$key];
+                    }
+                    
+                    echo 'Действие выполнено успешно!';
+                    echo '<div><a href="/page/profile/">Значит можно работать</a></div>';
+                }
             }
         }
     }
