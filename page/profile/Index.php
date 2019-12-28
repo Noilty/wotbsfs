@@ -91,6 +91,7 @@ require_once '../../assets/require-one.php';
                                             <option value="0">Женщина</option>
                                         </select>
                                     </fieldset>
+                                    <?php if( !$_SESSION['db_UserDateBirth'] ): ?>
                                     <fieldset>
                                         <legend>Секретное слово</legend>
                                         <input type="text" name="input_UserSecretWord" />
@@ -99,6 +100,13 @@ require_once '../../assets/require-one.php';
                                             <input type="password" name="input_UserPassword" />
                                         </fieldset>
                                     </fieldset>
+                                    <?php else: ?>
+                                    <fieldset>
+                                        <legend>Секретное слово</legend>
+                                        ...задано и его нельзя изменить!
+                                    </fieldset>
+                                    <?php endif; ?>
+
                                     <fieldset>
                                         <legend>Дата рождения</legend>
                                         <input type="date" name="input_UserDateBirth" />
