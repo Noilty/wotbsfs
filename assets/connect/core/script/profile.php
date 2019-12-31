@@ -18,6 +18,8 @@ try {
         echo $sMessage[] = 'Проверка на бота провалилась!';
         echo '<div><a href="/page/profile/">Попробовать снова</a></div>';
     } else {
+        $_SESSION['Captcha'] = NULL;
+        
         if( EmptyCheck($mProfile) ) {
             foreach (EmptyCheck($mProfile) as $key => $value) {
                 echo $value.'<br />';

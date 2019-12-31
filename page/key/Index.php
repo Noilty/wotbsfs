@@ -1,5 +1,11 @@
 <?php
 require_once '../../assets/require-one.php';
+
+//Тянем ключи которые активировал пользователь
+$mSql = [
+  'keys_users' => 'SELECT * FROM `keys`, keys_users WHERE `keys`.db_KeyId = keys_users.db_KeyId AND db_UserId = '.$_SESSION['db_UserId']
+];
+$mAllUserKeys = $pdo->query($mSql['keys_users'])->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -54,7 +60,24 @@ require_once '../../assets/require-one.php';
                         <div class="grid-content__item">
                             <fieldset class="fieldset_content__item">
                                 <legend class="legend_title__item">Вы активировали ключи</legend>
-                                {CONTENT}
+                                <div class="keys-table">
+                                    <table border="1">
+                                        <tr>
+                                            <th>Ключ</th>
+                                            <th>Описание</th>
+                                            <th>Тип</th>
+                                            <th>Дата активации</th>
+                                        </tr>
+                                        <?php foreach ($mAllUserKeys as $keyKeys => $valueKeys): ?>
+                                        <tr>
+                                            <td><?= $valueKeys['db_KeyName'] ?></td>
+                                            <td><?= $valueKeys['db_KeyDescription'] ?></td>
+                                            <td><?= $valueKeys['db_KeyType'] ?></td>
+                                            <td><?= $valueKeys['db_KeyActivationDate'] ?></td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </table>
+                                </div>
                             </fieldset>
                         </div>
                     </div>

@@ -14,6 +14,8 @@ try {
         echo $sMessage[] = 'Проверка на бота провалилась!';
         echo '<div><a href="/page/key/">Попробовать снова</a></div>';
     } else {
+        $_SESSION['Captcha'] = NULL;
+        
         $bSearchKey = false;
         $bKeyActivated = false;
         $sSql = 'SELECT * FROM `keys`';

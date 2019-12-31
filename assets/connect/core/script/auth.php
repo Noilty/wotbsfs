@@ -14,8 +14,10 @@ $mUser = [
 try {
     if( $mUser['UserNotBot'] != $_SESSION['Captcha'] ) {
         echo $sMessage[] = 'Проверка на бота провалилась!';
-        echo '<div><a href="/page/auth/">Попробовать снова</a></div>';
+        echo '<div><a href="/page/login/">Попробовать снова</a></div>';
     } else {
+        $_SESSION['Captcha'] = NULL;
+        
         if( EmptyCheck($mUser) ) {
             foreach (EmptyCheck($mUser) as $value) {
                 echo $value.'<br />';

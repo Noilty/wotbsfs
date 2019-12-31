@@ -17,6 +17,8 @@ try {
         echo $sMessage[] = 'Проверка на бота провалилась!';
         echo '<div><a href="/page/reg/">Попробовать снова</a></div>';
     } else {
+        $_SESSION['Captcha'] = NULL;
+        
         $bSearchUser = false;
         $sSql = 'SELECT db_UserNickName, db_UserEmail FROM users';
         $mUsers = $pdo->query($sSql)->fetchAll(PDO::FETCH_ASSOC);
