@@ -61,6 +61,9 @@ $mAllUserKeys = $pdo->query($mSql['keys_users'])->fetchAll(PDO::FETCH_ASSOC);
                             <fieldset class="fieldset_content__item">
                                 <legend class="legend_title__item">Вы активировали ключи</legend>
                                 <div class="keys-table">
+                                    <?php if( empty($mAllUserKeys) ): ?>
+                                    <p style="text-align: center;">Пусто</p>
+                                    <?php else: ?>
                                     <table border="1">
                                         <tr>
                                             <th>Ключ</th>
@@ -77,6 +80,7 @@ $mAllUserKeys = $pdo->query($mSql['keys_users'])->fetchAll(PDO::FETCH_ASSOC);
                                         </tr>
                                         <?php endforeach; ?>
                                     </table>
+                                    <?php endif; ?>
                                 </div>
                             </fieldset>
                         </div>

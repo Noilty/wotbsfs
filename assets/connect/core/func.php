@@ -16,11 +16,11 @@ function EmptyCheck($mParam) {
 
 /**
  * Преобразование роли из int в string
- * @param type $nRole
+ * @param type $iRole
  * @return string
  */
-function RoleCheck($nRole) {
-    switch ($nRole) {
+function RoleCheck($iRole) {
+    switch ($iRole) {
         case 1:
             $role = 'Администратор';
             break;

@@ -15,7 +15,7 @@ $mUser = [
 try {
     if( $mUser['UserNotBot'] != $_SESSION['Captcha'] ) {
         echo $sMessage[] = 'Проверка на бота провалилась!';
-        echo '<div><a href="/page/reg/">Попробовать снова</a></div>';
+        echo '<div><a href="/page/signup/">Попробовать снова</a></div>';
     } else {
         $_SESSION['Captcha'] = NULL;
         
@@ -42,24 +42,40 @@ try {
         
         if( $bSearchUser ) {
             echo $sMessage[] = 'Логин и(или) Электронная почта уже используются!';
-            echo '<div><a href="/page/reg/">Попробовать снова</a></div>';
+            echo '<div><a href="/page/signup/">Попробовать снова</a></div>';
         } else {
             if( $mUser['UserPassword'] != $mUser['UserPasswordRe'] ) {
                 echo $sMessage[] = 'Пароли не совпадают!';
-                echo '<div><a href="/page/reg/">Попробовать снова</a></div>';
+                echo '<div><a href="/page/signup/">Попробовать снова</a></div>';
             } else {
                 if( !EmptyCheck($mUser) ) {
-                    $sSql = 'INSERT INTO users(db_UserNickName, db_UserPassword, db_UserEmail, db_UserEmailConfirmed, db_UserDateRegister) VALUES(:UserNickName, :UserPassword, :UserEmail, :UserEmailConfirmed, NOW())';
-                    $mParams = [
-                        'UserNickName' => $mUser['UserNickName'],
-                        'UserPassword' => password_hash($mUser['UserPassword'], PASSWORD_DEFAULT),
-                        'UserEmail' => $mUser['UserEmail'],
-                        'UserEmailConfirmed' => 'false',
+                    $sSql = [
+                        'users' => 'INSERT INTO users(db_UserNickName, db_UserPassword, db_UserEmail, db_UserEmailConfirmed, db_UserDateRegister) VALUES(:UserNickName, :UserPassword, :UserEmail, :UserEmailConfirmed, NOW())',
+                        'settings' => 'INSERT INTO settings(db_CountPlayer, db_CountElement, db_TemplateId, db_NickNamePlayer1, db_NickNamePlayer2, db_NickNamePlayer3) VALUES(:CountPlayer, :CountElement, :TemplateId, :NickNamePlayer1, :NickNamePlayer2, :NickNamePlayer3)'
                     ];
-                    $stmt = $pdo->prepare($sSql);
-                    $stmt->execute($mParams);
+                    $mParams = [
+                        'users' => [
+                            'UserNickName' => $mUser['UserNickName'],
+                            'UserPassword' => password_hash($mUser['UserPassword'], PASSWORD_DEFAULT),
+                            'UserEmail' => $mUser['UserEmail'],
+                            'UserEmailConfirmed' => 0
+                        ],
+                        'settings' => [
+                            'CountPlayer' => 3,
+                            'CountElement' => 50,
+                            'TemplateId' => 0,
+                            'NickNamePlayer1' => 'Player 1',
+                            'NickNamePlayer2' => 'Player 2',
+                            'NickNamePlayer3' => 'Player 3'
+                        ]
+                    ];
+                    $stmtUsers = $pdo->prepare($sSql['users']);
+                    $stmtUsers->execute($mParams['users']);
+                    
+                    $stmtSettings = $pdo->prepare($sSql['settings']);
+                    $stmtSettings->execute($mParams['settings']);
 
-                    if( $stmt ) {
+                    if( $stmtUsers && $stmtSettings ) {
                         echo $sMessage[] = 'Регистрация успешна!';
                         echo '<div><a href="/page/main/">Значит можно работать</a></div>';
                     }
@@ -67,13 +83,13 @@ try {
                     foreach (EmptyCheck($mUser) as $value) {
                         echo $value.'<br />';
                     }
-                    echo '<div><a href="/page/reg/">Попробовать снова</a></div>';
+                    echo '<div><a href="/page/signup/">Попробовать снова</a></div>';
                 }
             }
         }
     }
 } catch (Exception $exc) {
     //echo $exc->getTraceAsString();
-    //echo MyDump($exc);
-    echo $sMessage[] = 'Exception: reg.php!';
+    echo MyDump($exc);
+    echo $sMessage[] = 'Exception: signup.php!';
 }
