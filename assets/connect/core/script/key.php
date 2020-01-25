@@ -25,11 +25,13 @@ try {
             //Проверяем существует ли ключ в БД который ввел пользователь
             if( $mAllKeys[$i]['db_KeyName'] === strtoupper($mKey['ActivationKey']) ) {
                 $bSearchKey = true;
+                $sKeyType = NULL;
                 //Проверяем статус ключа
                 if( $mAllKeys[$i]['db_KeyStatus'] ) {
                     $bKeyActivated = true;
                 } else {
                     $KeyId = $mAllKeys[$i]['db_KeyId'];
+                    $sKeyType = $mAllKeys[$i]['db_KeyType'];
                 }
             }
         }
@@ -38,41 +40,46 @@ try {
             echo $sMessage[] = 'Проверьте правильность ввода ключа.';
             echo '<div><a href="/page/key/">Попробовать снова</a></div>';
         } else {
-            //Если статус ключа false то его можно использовать
-            if( $bKeyActivated ) {
-                echo $sMessage[] = 'Этот ключ уже активирован.';
-                echo '<div><a href="/page/key/">Попробовать снова</a></div>';
-            } else {
-                //Если аккаунт уже был активирован запрещаем использование ключа
-                if( $_SESSION['ActivatedAccount'] ) {
-                    echo $sMessage[] = 'Аккаунт уже активирован! Повторная активация не требуется.';
+            //Если тип ключа AA0 (тип активации аккаунта) то идем дальше
+            if( (string)$sKeyType === 'AA0' ) {
+                //Если статус ключа false то его можно использовать
+                if( $bKeyActivated ) {
+                    echo $sMessage[] = 'Этот ключ уже активирован.';
                     echo '<div><a href="/page/key/">Попробовать снова</a></div>';
                 } else {
-                    //У ключа статус false т.е он не занят следовательно пишем его в keys_users
-                    $sSql = 'INSERT INTO keys_users(db_KeyId, db_UserId, db_KeyActivationDate) VALUES(:KeyId, :UserId, NOW())';
-                    $mParams = [
-                        'KeyId' => $KeyId,
-                        'UserId' => $_SESSION['db_UserId']
-                    ];
-                    $stmt = $pdo->prepare($sSql);
-                    $stmt->execute($mParams);
-                    
-                    //Если запрос вернул true активируем ключ
-                    if( $stmt ) {
-                        echo $sMessage[] = 'Ключ активирован!';
-                        echo '<div><a href="/page/main/">Значит можно работать</a></div>';
-
-                        $sSql = 'UPDATE `keys` SET db_KeyStatus = :KeyStatus WHERE db_KeyId = :KeyId';
+                    //Если аккаунт уже был активирован запрещаем использование ключа
+                    if( $_SESSION['ActivatedAccount'] ) {
+                        echo $sMessage[] = 'Аккаунт уже активирован! Повторная активация не требуется.';
+                        echo '<div><a href="/page/key/">Попробовать снова</a></div>';
+                    } else {
+                        //У ключа статус false т.е он не занят следовательно пишем его в keys_users
+                        $sSql = 'INSERT INTO keys_users(db_KeyId, db_UserId, db_KeyActivationDate) VALUES(:KeyId, :UserId, NOW())';
                         $mParams = [
-                            'KeyStatus' => 1,
-                            'KeyId' => $KeyId
+                            'KeyId' => $KeyId,
+                            'UserId' => $_SESSION['db_UserId']
                         ];
                         $stmt = $pdo->prepare($sSql);
                         $stmt->execute($mParams);
 
-                        $_SESSION['ActivatedAccount'] = true;
+                        //Если запрос вернул true активируем ключ
+                        if( $stmt ) {
+                            echo $sMessage[] = 'Ключ активирован!';
+                            echo '<div><a href="/page/main/">Значит можно работать</a></div>';
+
+                            $sSql = 'UPDATE `keys` SET db_KeyStatus = :KeyStatus WHERE db_KeyId = :KeyId';
+                            $mParams = [
+                                'KeyStatus' => 1,
+                                'KeyId' => $KeyId
+                            ];
+                            $stmt = $pdo->prepare($sSql);
+                            $stmt->execute($mParams);
+
+                            $_SESSION['ActivatedAccount'] = true;
+                        }
                     }
                 }
+            } else {
+                echo 'TypeKey: '.$sKeyType;
             }
         }
     }

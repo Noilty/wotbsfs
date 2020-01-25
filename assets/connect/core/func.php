@@ -38,7 +38,7 @@ function RoleCheck($iRole) {
 }
 
 /**
- * Преобразование пола из int в string
+ * Преобразование поля из int в string
  * @param type $iGender
  * @return string
  */

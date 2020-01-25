@@ -80,27 +80,29 @@ require_once '../../assets/require-one.php';
                     </div>
                 </main>
                 <aside class="sidebar sidebar__left">
-                    <fieldset class="fieldset_content">
-                        <legend class="legend_title" align="center">Введите урон</legend>
-                        <fieldset>
-                            <legend>Игрок #1</legend>
-                            <input type="text" name="input_DamagePlayer1" />
+                    <form id="form-main" action="../../assets/connect/core/script/main.php" method="POST">
+                        <fieldset class="fieldset_content">
+                            <legend class="legend_title" align="center">Введите урон</legend>
+                            <fieldset>
+                                <legend>Игрок #1</legend>
+                                <input type="text" name="input_DamagePlayer1" />
+                            </fieldset>
+                            <fieldset>
+                                <legend>Игрок #2</legend>
+                                <input type="text" name="input_DamagePlayer2" />
+                            </fieldset>
+                            <fieldset>
+                                <legend>Игрок #3</legend>
+                                <input type="text" name="input_DamagePlayer3" />
+                            </fieldset>
+                            <fieldset>
+                                <legend>На снится</legend>
+                                <label><input type="radio" name="input_BattleResult" value="true" /> Победа!</label><br />
+                                <label><input type="radio" name="input_BattleResult" value="false" /> Поражение!</label>
+                            </fieldset>
+                            <input type="submit" />
                         </fieldset>
-                        <fieldset>
-                            <legend>Игрок #2</legend>
-                            <input type="text" name="input_DamagePlayer2" />
-                        </fieldset>
-                        <fieldset>
-                            <legend>Игрок #3</legend>
-                            <input type="text" name="input_DamagePlayer3" />
-                        </fieldset>
-                        <fieldset>
-                            <legend>На снится</legend>
-                            <label><input type="radio" name="input_BattleResult" value="true" /> Победа!</label><br />
-                            <label><input type="radio" name="input_BattleResult" value="false" /> Поражение!</label>
-                        </fieldset>
-                        <input type="submit" />
-                    </fieldset>
+                    </form>
                     <div style="margin: 10px 0px 10px 20px;">
                         <div style="text-align: center; padding: 0px 0px 10px 0px;">
                             <label><input type="checkbox" id="checkbox" /> Очистить сессию?</label>
