@@ -69,3 +69,12 @@ function MyDump($exp) {
     echo var_dump($exp);
     echo '</pre>';
 }
+
+/**
+ * Фильтрация данных вводимых пользователем с формы
+ * @param type $data
+ * @return type
+ */
+function filterDataForms($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
+}

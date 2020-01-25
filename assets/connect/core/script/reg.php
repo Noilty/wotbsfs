@@ -5,11 +5,11 @@ $DATA = $_POST;
 $sMessage = [];
 
 $mUser = [
-    'UserNickName' => trim( $DATA['input_UserNickName'] ),
-    'UserPassword' => trim( $DATA['input_UserPassword'] ),
-    'UserPasswordRe' => trim( $DATA['input_UserPasswordRe'] ),
-    'UserEmail' => trim( $DATA['input_UserEmail'] ),
-    'UserNotBot' => trim( $DATA['input_UserNotBot'] )
+    'UserNickName' => filterDataForms( $DATA['input_UserNickName'] ),
+    'UserPassword' => filterDataForms( $DATA['input_UserPassword'] ),
+    'UserPasswordRe' => filterDataForms( $DATA['input_UserPasswordRe'] ),
+    'UserEmail' => filterDataForms( $DATA['input_UserEmail'] ),
+    'UserNotBot' => filterDataForms( $DATA['input_UserNotBot'] )
 ];
 
 try {

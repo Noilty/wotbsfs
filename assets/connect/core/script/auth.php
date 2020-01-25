@@ -6,9 +6,9 @@ $sMessage = [];
 
 //Данные с формы
 $mUser = [
-    'UserEmail' => trim( $DATA['input_UserEmail'] ),
-    'UserPassword' => trim( $DATA['input_UserPassword'] ),
-    'UserNotBot' => trim( $DATA['input_UserNotBot'] )
+    'UserEmail' => filterDataForms( $DATA['input_UserEmail'] ),
+    'UserPassword' => filterDataForms( $DATA['input_UserPassword'] ),
+    'UserNotBot' => filterDataForms( $DATA['input_UserNotBot'] )
 ];
 
 try {

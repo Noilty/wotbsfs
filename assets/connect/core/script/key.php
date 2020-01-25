@@ -5,8 +5,8 @@ $DATA = $_POST;
 $sMessage = [];
 
 $mKey = [
-    'ActivationKey' => trim( strtoupper($DATA['input_ActivationKey']) ),
-    'UserNotBot' => trim( $DATA['input_UserNotBot'] )
+    'ActivationKey' => filterDataForms( strtoupper($DATA['input_ActivationKey']) ),
+    'UserNotBot' => filterDataForms( $DATA['input_UserNotBot'] )
 ];
 
 try {

@@ -5,12 +5,12 @@ $DATA = $_POST;
 $sMessage = [];
 
 $mProfile = [
-    'UserName' => trim( $DATA['input_UserName'] ),
-    'UserGender' => trim( $DATA['select_UserGender'] ),
-    'UserSecretWord' => trim( $DATA['input_UserSecretWord'] ),
-    'UserPassword' => trim( $DATA['input_UserPassword'] ),
-    'UserDateBirth' => trim( $DATA['input_UserDateBirth'] ),
-    'UserNotBot' => trim( $DATA['input_UserNotBot'] )
+    'UserName' => filterDataForms( $DATA['input_UserName'] ),
+    'UserGender' => filterDataForms( $DATA['select_UserGender'] ),
+    'UserSecretWord' => filterDataForms( $DATA['input_UserSecretWord'] ),
+    'UserPassword' => filterDataForms( $DATA['input_UserPassword'] ),
+    'UserDateBirth' => filterDataForms( $DATA['input_UserDateBirth'] ),
+    'UserNotBot' => filterDataForms( $DATA['input_UserNotBot'] )
 ];
 
 try {
