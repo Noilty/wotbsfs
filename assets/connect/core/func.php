@@ -78,3 +78,17 @@ function MyDump($exp) {
 function filterDataForms($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
+
+function isCheckParamType($param, $type) {
+    switch ($type) {
+        case 'int':
+            is_int($param) === true ? true : false;
+            break;
+        case 'string':
+            is_string($param) === true ? true : false;
+            break;
+        case 'bool':
+            is_bool($param) === true ? true : false;
+            break;
+    }
+}

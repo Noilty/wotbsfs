@@ -175,15 +175,15 @@ require_once '../../assets/require-one.php';
     
     <script>
         $( document ).ready(function() {
-        $('#checkbox').click(function(){
-            if ($(this).is(':checked')){
-                $('#clear-session').show(100);
-            } else {
-                $('#clear-session').hide(100);
-            }
-        });
-        $('.fieldset_content').css('margin','15px 0px 0px 20px');
-        $('.grid-content').css({'grid-template-columns':'2fr','padding':'0px 20px 0px 0px'});
+            $('#checkbox').click(function(){
+                if ($(this).is(':checked')){
+                    $('#clear-session').show(100);
+                } else {
+                    $('#clear-session').hide(100);
+                }
+            });
+            $('.fieldset_content').css('margin','15px 0px 0px 20px');
+            $('.grid-content').css({'grid-template-columns':'2fr','padding':'0px 20px 0px 0px'});
         });// document ready
     </script>  
     
