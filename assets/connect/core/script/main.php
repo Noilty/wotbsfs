@@ -8,7 +8,7 @@ $mMain = [
     'input_DamagePlayer1' => (int)filterDataForms( $DATA['input_DamagePlayer1'] ),
     'input_DamagePlayer2' => (int)filterDataForms( $DATA['input_DamagePlayer2'] ),
     'input_DamagePlayer3' => (int)filterDataForms( $DATA['input_DamagePlayer3'] ),
-    'input_BattleResult' => (bool)filterDataForms( $DATA['input_BattleResult'] ) 
+    'input_BattleResult' => (int)filterDataForms( $DATA['input_BattleResult'] ) 
 ];
 
 try {
@@ -48,6 +48,6 @@ try {
     }
 } catch (Exception $exc) {
     //echo $exc->getTraceAsString();
-    //echo MyDump($exc);
-    echo $sMessage[] = 'Exception: main.php!';
+    echo MyDump($exc);
+    //echo $sMessage[] = 'Exception: main.php!';
 }

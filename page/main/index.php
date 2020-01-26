@@ -48,35 +48,25 @@ require_once '../../assets/require-one.php';
                                         <th rowspan="2" style="width: 90px;">Действие</th>
                                     </tr>
                                     <tr>
-                                        <th>Игрок #1</th>
-                                        <th>Игрок #2</th>
-                                        <th>Игрок #3</th>
+                                        <th><?= $row_TableDB__settings[0]['db_NickNamePlayer1'] ?></th>
+                                        <th><?= $row_TableDB__settings[0]['db_NickNamePlayer2'] ?></th>
+                                        <th><?= $row_TableDB__settings[0]['db_NickNamePlayer3'] ?></th>
                                     </tr>
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($row_mainTableDateBase as $key => $value): ?>
+                                    <?php $iNumBattles = count($row_TableDB__resultbattles); ?>
+                                    <?php foreach ($row_TableDB__resultbattles as $key => $value): ?>
+                                    <?php $mIsWinLose = isWinLose($value['db_BattleResult']); ?>
                                     <tr>
-                                        <th rowspan="2" class="battle-fail"><?= $i++; ?></th>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>ПОРАЖЕНИЕ</td>
-                                        <td>Изменить</td>
+                                        <th rowspan="2" class="<?= $mIsWinLose[1]; ?>"><?= $iNumBattles--; ?></th>
+                                        <td><?= $value['db_DamageOnePlayer']; ?></td>
+                                        <td><?= $value['db_DamageTwoPlayer']; ?></td>
+                                        <td><?= $value['db_DamageThreePlayer']; ?></td>
+                                        <td><?= $mIsWinLose[0]; ?></td>
+                                        <td> <i style="color: red;">Изменить</i></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5">INFO</td>
+                                        <td colspan="5"><i style="color: red;">Подробнее</i></td>
                                     </tr>
                                     <?php endforeach; ?>
-                                    <tr>
-                                        <th rowspan="2" class="battle-win">2</th>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>ПОРАЖЕНИЕ</td>
-                                        <td>Изменить</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5">INFO</td>
-                                    </tr>
                                 </table>
                             </fieldset>
                         </div>
@@ -87,15 +77,15 @@ require_once '../../assets/require-one.php';
                         <fieldset class="fieldset_content">
                             <legend class="legend_title" align="center">Введите урон</legend>
                             <fieldset>
-                                <legend>Игрок #1</legend>
+                                <legend><?= $row_TableDB__settings[0]['db_NickNamePlayer1'] ?></legend>
                                 <input type="text" name="input_DamagePlayer1" />
                             </fieldset>
                             <fieldset>
-                                <legend>Игрок #2</legend>
+                                <legend><?= $row_TableDB__settings[0]['db_NickNamePlayer2'] ?></legend>
                                 <input type="text" name="input_DamagePlayer2" />
                             </fieldset>
                             <fieldset>
-                                <legend>Игрок #3</legend>
+                                <legend><?= $row_TableDB__settings[0]['db_NickNamePlayer3'] ?></legend>
                                 <input type="text" name="input_DamagePlayer3" />
                             </fieldset>
                             <fieldset>
@@ -126,11 +116,11 @@ require_once '../../assets/require-one.php';
                             <div class="grid-statistics__item">99 999</div>
                             <div class="grid-statistics__item">Поражений</div>
                             <div class="grid-statistics__item">99 999</div>
-                            <div class="grid-statistics__item"><strong>СУ</strong>_Гамер №1</div>
+                            <div class="grid-statistics__item"><strong>СУ</strong>_<?= $row_TableDB__settings[0]['db_NickNamePlayer1'] ?></div>
                             <div class="grid-statistics__item">99 999</div>
-                            <div class="grid-statistics__item"><strong>СУ</strong>_Гамер №2</div>
+                            <div class="grid-statistics__item"><strong>СУ</strong>_<?= $row_TableDB__settings[0]['db_NickNamePlayer2'] ?></div>
                             <div class="grid-statistics__item">99 999</div>
-                            <div class="grid-statistics__item"><strong>СУ</strong>_Гамер №3</div>
+                            <div class="grid-statistics__item"><strong>СУ</strong>_<?= $row_TableDB__settings[0]['db_NickNamePlayer3'] ?></div>
                             <div class="grid-statistics__item">99 999</div>
                             <div class="grid-statistics__item">% Побед</div>
                             <div class="grid-statistics__item">99 999</div>

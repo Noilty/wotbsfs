@@ -126,9 +126,10 @@ function sumDamagePlayer($gamer) {
  * @return type
  */
 function numberBattles($param) {
-    foreach ($param as $value_param) {
-        foreach ($value_param as $value_value_param) {
-            $sum = $battle += $value_value_param;
+    foreach ($param as $key_param => $value_param) {
+        foreach ($value_param as $key__value_param => $value__value_param) {
+            echo $value__value_param.'<br />';
+            //sum = $battle += $value_value_param;
         }
     }
     return $sum;
@@ -142,11 +143,11 @@ function numberBattles($param) {
 function isWinLose($choice) {
     if($choice == 1) {
         $type = 'ПОБЕДА';
-        $color = 'darkgreen';
+        $class = 'battle-win';
     } else {
         $type = 'ПОРАЖЕНИЕ';
-        $color = 'brown';
+        $class = 'battle-fail';
     }
-    $reultChoiceBattle = [$type, $color];
+    $reultChoiceBattle = [$type, $class];
     return $reultChoiceBattle;
 }
