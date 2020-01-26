@@ -5,31 +5,45 @@ $DATA = $_POST;
 $sMessage = [];
 
 $mMain = [
-    'input_DamagePlayer1' => filterDataForms( $DATA['input_DamagePlayer1'] ),
-    'input_DamagePlayer2' => filterDataForms( $DATA['input_DamagePlayer2'] ),
-    'input_DamagePlayer3' => filterDataForms( $DATA['input_DamagePlayer3'] ),
-    'input_BattleResult' => filterDataForms( $DATA['input_BattleResult'] ) 
+    'input_DamagePlayer1' => (int)filterDataForms( $DATA['input_DamagePlayer1'] ),
+    'input_DamagePlayer2' => (int)filterDataForms( $DATA['input_DamagePlayer2'] ),
+    'input_DamagePlayer3' => (int)filterDataForms( $DATA['input_DamagePlayer3'] ),
+    'input_BattleResult' => (bool)filterDataForms( $DATA['input_BattleResult'] ) 
 ];
 
 try {
     //Проверяем переменные на пустоту
     if( EmptyCheck($mMain) ) {
-        foreach (EmptyCheck($mProfile) as $key => $value) {
+        foreach (EmptyCheck($mMain) as $value) {
             echo $value.'<br />';
         }
         echo '<div><a href="/page/main/">Попробовать снова</a></div>';
     } else {
-        $dmg1Player = is_int($mMain['input_DamagePlayer1']);
-        $dmg2Player = is_int($mMain['input_DamagePlayer2']);
-        $dmg3Player = is_int($mMain['input_DamagePlayer3']);
-        $battleResult = is_bool($mMain['input_BattleResult']);
-        //Проверяем переменные на тим int
-        if( (!$dmg1Player) || (!$dmg2Player) || (!$dmg3Player) ) {
-            //errors
-        } elseif( !$battleResult ) {
-            //errors
+        //good
+        $sSql = [
+            'resultbattles' => 'INSERT INTO resultbattles(db_UserId, db_Battle, db_DamageOnePlayer, db_DamageTwoPlayer, db_DamageThreePlayer, db_BattleResult, db_BattleDate, db_BattleDateEdit) VALUES(:UserId, :Battle, :DamageOnePlayer, :DamageTwoPlayer, :DamageThreePlayer, :BattleResult, NOW(), :BattleDateEdit)'
+        ];
+        $mParams = [
+            'resultbattles' => [
+                'UserId' => (int)$_SESSION['db_UserId'],
+                'Battle' => 1,
+                'DamageOnePlayer' => $mMain['input_DamagePlayer1'],
+                'DamageTwoPlayer' => $mMain['input_DamagePlayer2'],
+                'DamageThreePlayer' => $mMain['input_DamagePlayer3'],
+                'BattleResult' => $mMain['input_BattleResult'],
+                'BattleDateEdit' => NULL
+            ]
+        ];
+        
+        $stmtMain = $pdo->prepare($sSql['resultbattles']);
+        $stmtMain->execute($mParams['resultbattles']);
+        
+        if ( $stmtMain ) {
+            echo $sMessage[] = 'Успех!';
+            echo '<div><a href="/page/main/">Играем дальше</a></div>';
         } else {
-            //good
+            echo $sMessage[] = 'Что-то пошло не так!';
+            echo '<div><a href="/page/main/">Исправить</a></div>';
         }
     }
 } catch (Exception $exc) {
