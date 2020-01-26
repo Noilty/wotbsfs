@@ -52,8 +52,10 @@ require_once '../../assets/require-one.php';
                                         <th>Игрок #2</th>
                                         <th>Игрок #3</th>
                                     </tr>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($row_mainTableDateBase as $key => $value): ?>
                                     <tr>
-                                        <th rowspan="2" class="battle-fail">1</th>
+                                        <th rowspan="2" class="battle-fail"><?= $i++; ?></th>
                                         <td>2</td>
                                         <td>3</td>
                                         <td>4</td>
@@ -63,6 +65,7 @@ require_once '../../assets/require-one.php';
                                     <tr>
                                         <td colspan="5">INFO</td>
                                     </tr>
+                                    <?php endforeach; ?>
                                     <tr>
                                         <th rowspan="2" class="battle-win">2</th>
                                         <td>2</td>
@@ -97,8 +100,8 @@ require_once '../../assets/require-one.php';
                             </fieldset>
                             <fieldset>
                                 <legend>На снится</legend>
-                                <label><input type="radio" name="input_BattleResult" value="true" /> Победа!</label><br />
-                                <label><input type="radio" name="input_BattleResult" value="false" /> Поражение!</label>
+                                <label><input type="radio" name="input_BattleResult" value="1" /> Победа!</label><br />
+                                <label><input type="radio" name="input_BattleResult" value="0" /> Поражение!</label>
                             </fieldset>
                             <input type="submit" />
                         </fieldset>

@@ -7,8 +7,8 @@
 function EmptyCheck($mParam) {
     $sMessage = [];
     foreach ($mParam as $key => $value) {
-        if( empty($value) ) {
-            $sMessage[] = 'Поле <strong>'.$key.'</strong> Не может быть пустым';
+        if( $value === "" ) {
+            $sMessage[] = 'Поле <strong>'.$key.'</strong> Не может быть пустым!';
         }
     }
     return $sMessage;
@@ -79,16 +79,74 @@ function filterDataForms($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
 
-function isCheckParamType($param, $type) {
-    switch ($type) {
-        case 'int':
-            is_int($param) === true ? true : false;
-            break;
-        case 'string':
-            is_string($param) === true ? true : false;
-            break;
-        case 'bool':
-            is_bool($param) === true ? true : false;
-            break;
+/**
+ * процент побед
+ * @param type $winBattle
+ * @param type $numberBattles
+ * @return type
+ */
+function winningPercentage($winBattle, $numberBattles) {
+    $result = ($winBattle/$numberBattles)*100;
+    return number_format($result, 2, '.', '');
+}
+
+/**
+ * Расчет среднего урона игрока
+ * @param type $param
+ * @return type
+ */
+function averageDamage($param) {
+    $i = 0;
+    foreach ($param as $value_param) {
+        foreach ($value_param as $value_value_param) {
+            $i++;
+            $sum = $damage += $value_value_param;
+        }
     }
+    return round($sum/$i);
+}
+
+/**
+ * Сумма: Урон игрока
+ * @param type $gamer
+ * @return type
+ */
+function sumDamagePlayer($gamer) {
+    foreach ($gamer as $value_gamer) {
+        foreach ($value_gamer as $value_value_gamer) {
+            $sum = $damage += $value_value_gamer;
+        }
+    }
+    return $sum;
+}
+
+/**
+ * Кол-во боев
+ * @param type $param
+ * @return type
+ */
+function numberBattles($param) {
+    foreach ($param as $value_param) {
+        foreach ($value_param as $value_value_param) {
+            $sum = $battle += $value_value_param;
+        }
+    }
+    return $sum;
+}
+
+/**
+ * win & lose
+ * @param type $choice
+ * @return string
+ */
+function isWinLose($choice) {
+    if($choice == 1) {
+        $type = 'ПОБЕДА';
+        $color = 'darkgreen';
+    } else {
+        $type = 'ПОРАЖЕНИЕ';
+        $color = 'brown';
+    }
+    $reultChoiceBattle = [$type, $color];
+    return $reultChoiceBattle;
 }
